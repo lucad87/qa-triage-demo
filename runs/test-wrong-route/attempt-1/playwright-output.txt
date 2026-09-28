@@ -1,0 +1,287 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  x  1 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (5.2s)
+  x  2 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (retry #1) (5.2s)
+  x  3 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (30.1s)
+  x  4 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (retry #1) (30.1s)
+  x  5 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (30.1s)
+  x  6 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (30.1s)
+  x  7 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (30.1s)
+  x  8 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (retry #1) (30.1s)
+
+
+  1) [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'TaskDeck' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'TaskDeck' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'TaskDeck' })
+
+
+       7 | test("empty board shows the empty state", async ({ page }) => {
+       8 |   await page.goto("/tasks");
+    >  9 |   await expect(page.getByRole("heading", { name: "TaskDeck" })).toBeVisible();
+         |                                                                 ^
+      10 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+      11 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      12 | });
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:9:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('heading', { name: 'TaskDeck' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('heading', { name: 'TaskDeck' }) with timeout 5000ms
+      - waiting for getByRole('heading', { name: 'TaskDeck' })
+
+
+       7 | test("empty board shows the empty state", async ({ page }) => {
+       8 |   await page.goto("/tasks");
+    >  9 |   await expect(page.getByRole("heading", { name: "TaskDeck" })).toBeVisible();
+         |                                                                 ^
+      10 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+      11 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      12 | });
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:9:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      14 | test("creating a task shows it in the list and updates the counter", async ({ page }) => {
+      15 |   await page.goto("/tasks");
+    > 16 |   await page.getByLabel("New task").fill("Write the triage article");
+         |                                     ^
+      17 |   await page.getByRole("button", { name: "Add" }).click();
+      18 |
+      19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:16:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      14 | test("creating a task shows it in the list and updates the counter", async ({ page }) => {
+      15 |   await page.goto("/tasks");
+    > 16 |   await page.getByLabel("New task").fill("Write the triage article");
+         |                                     ^
+      17 |   await page.getByRole("button", { name: "Add" }).click();
+      18 |
+      19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:16:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      23 | test("completing a task updates the counter and the Done filter", async ({ page }) => {
+      24 |   await page.goto("/tasks");
+    > 25 |   await page.getByLabel("New task").fill("Ship the demo");
+         |                                     ^
+      26 |   await page.getByRole("button", { name: "Add" }).click();
+      27 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      28 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:25:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      23 | test("completing a task updates the counter and the Done filter", async ({ page }) => {
+      24 |   await page.goto("/tasks");
+    > 25 |   await page.getByLabel("New task").fill("Ship the demo");
+         |                                     ^
+      26 |   await page.getByRole("button", { name: "Add" }).click();
+      27 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      28 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:25:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ─────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      36 | test("blank tasks are ignored", async ({ page }) => {
+      37 |   await page.goto("/tasks");
+    > 38 |   await page.getByLabel("New task").fill("   ");
+         |                                     ^
+      39 |   await page.getByRole("button", { name: "Add" }).click();
+      40 |
+      41 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:38:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.fill: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('New task')
+
+
+      36 | test("blank tasks are ignored", async ({ page }) => {
+      37 |   await page.goto("/tasks");
+    > 38 |   await page.getByLabel("New task").fill("   ");
+         |                                     ^
+      39 |   await page.getByRole("button", { name: "Add" }).click();
+      40 |
+      41 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:38:37
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ─────────────────────────
+    [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+    [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+    [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ──────────────────────────────────
+

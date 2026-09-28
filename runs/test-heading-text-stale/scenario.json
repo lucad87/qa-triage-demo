@@ -1,0 +1,20 @@
+{
+  "id": "test-heading-text-stale",
+  "class": "test",
+  "title": "Stale heading: spec expects \"Task Deck\" while the app renders \"TaskDeck\"",
+  "summary": "e2e/tasks.spec.ts now asserts the page heading is named \"Task Deck\" while app/page.tsx intentionally renders <h1>TaskDeck</h1>. The empty-board test times out on that first assertion. Ground truth: the app behavior is intended and the fix belongs to the TEST (restore the stale heading text).",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();",
+      "replace": "  await expect(page.getByRole(\"heading\", { name: \"Task Deck\" })).toBeVisible();"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

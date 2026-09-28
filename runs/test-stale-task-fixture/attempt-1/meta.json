@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-stale-task-fixture",
+  "class": "test",
+  "title": "Stale fixture: spec expects \"Draft the post\", a task it never creates",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 18665,
+  "startedAt": "2026-09-28T19:37:27.083Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

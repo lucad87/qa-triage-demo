@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-checkbox-name-stale",
+  "class": "test",
+  "title": "Stale checkbox name: spec targets \"Mark ... as complete\" while the app renders \"as done\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 68210,
+  "startedAt": "2026-09-28T19:35:22.138Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

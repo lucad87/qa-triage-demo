@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-counter-counts-done",
+  "class": "product",
+  "title": "Active counter counts done tasks instead of active ones",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 29977,
+  "startedAt": "2026-09-28T19:30:26.191Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "product-get-drops-last-task",
+  "class": "product",
+  "title": "listTasks() drops the most recent task",
+  "summary": "lib/store.ts listTasks() returns a copy of the task list without its last element, so the GET that runs right after creating a task never includes it. On a one-item list the response is empty and the \"creating a task...\" test fails at toContainText on the task list.",
+  "edits": [
+    {
+      "file": "lib/store.ts",
+      "find": "  return store().tasks;",
+      "replace": "  return store().tasks.slice(0, -1);"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "changedFiles": [
+    "lib/store.ts"
+  ]
+}

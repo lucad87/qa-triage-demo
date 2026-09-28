@@ -1,0 +1,17 @@
+{
+  "id": "test-stale-empty-copy",
+  "class": "test",
+  "title": "Stale copy: spec asserts \"Nothing to do yet.\" while the app renders \"Nothing here yet.\"",
+  "summary": "The \"empty board shows the empty state\" test now asserts the empty-state text is \"Nothing to do yet.\" while app/page.tsx intentionally renders \"Nothing here yet.\", so the assertion times out. Ground truth: the expected copy in the TEST is stale.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();",
+      "replace": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toHaveText(\"Nothing to do yet.\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

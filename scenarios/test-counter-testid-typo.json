@@ -1,0 +1,17 @@
+{
+  "id": "test-counter-testid-typo",
+  "class": "test",
+  "title": "Spec reads testid \"todo-count\" in one test while the app exposes \"active-count\"",
+  "summary": "In the \"creating a task shows it in the list and updates the counter\" test, e2e/tasks.spec.ts now reads the counter from getByTestId(\"todo-count\"), a testid the intended app never renders (app/page.tsx exposes data-testid=\"active-count\"). The locator times out; the other tests and the app are untouched. Ground truth: the expected value in the TEST is wrong.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");",
+      "replace": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"todo-count\")).toHaveText(\"1\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "test": "creating a task shows it in the list and updates the counter",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"creating a task shows it in the list and updates the counter\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();\n\n  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (5.3s); retry failed (5.3s)",
+  "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator: getByTestId('todo-count')\nExpected: \"1\"\nTimeout: 5000ms\nError: element(s) not found",
+  "diff": "--- e2e/tasks.spec.ts\n-   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n-   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n+   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n+   await expect(page.getByTestId(\"todo-count\")).toHaveText(\"1\");",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "durationMs": 5323
+}

@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-add-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a button named \"Create\" while the app button is \"Add\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 190006,
+  "startedAt": "2026-09-28T19:32:11.921Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 3,
+    "flaky": 0,
+    "passed": 1
+  }
+}

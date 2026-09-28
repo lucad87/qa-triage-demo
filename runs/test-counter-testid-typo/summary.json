@@ -1,0 +1,24 @@
+{
+  "id": "test-counter-testid-typo",
+  "class": "test",
+  "title": "Spec reads testid \"todo-count\" in one test while the app exposes \"active-count\"",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter"
+      ],
+      "flaky": [],
+      "durationMs": 18786
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

@@ -1,0 +1,17 @@
+{
+  "id": "test-stale-task-fixture",
+  "class": "test",
+  "title": "Stale fixture: spec expects \"Draft the post\", a task it never creates",
+  "summary": "The \"creating a task shows it in the list and updates the counter\" test now also expects the list to contain \"Draft the post\", which no step of the spec creates and the intended app never adds, so the assertion times out. Ground truth: the expected data in the TEST is stale.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");",
+      "replace": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"task-list\")).toContainText(\"Draft the post\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

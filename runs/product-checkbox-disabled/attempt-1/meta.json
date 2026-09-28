@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-checkbox-disabled",
+  "class": "product",
+  "title": "Task checkbox is rendered disabled",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 68163,
+  "startedAt": "2026-09-28T19:29:17.816Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

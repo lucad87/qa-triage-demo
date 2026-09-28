@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-create-duplicates",
+  "class": "product",
+  "title": "Creating a task inserts two copies",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 31317,
+  "startedAt": "2026-09-28T19:44:23.872Z",
+  "changedFiles": [
+    "lib/store.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

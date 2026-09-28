@@ -1,36 +1,30 @@
 # NEXT-STEPS — qa-triage-demo
 
-Aggiornato: 2026-09-28 (sessione in corso). Questo file è il piano di lavoro della demo per l'articolo.
+Aggiornato: 2026-09-28. Questo file è il piano di lavoro della demo per l'articolo.
 
-## Contesto (in una riga)
-Dimostrazione per l'articolo su blog.lucad.cloud: Playwright in CI + **Laya** (decision model CPU/ONNX) + **LLM (DeepSeek)** per triare i fallimenti: fix del test (proposta verificata) quando è il test, bug report quando è il prodotto.
+## Contesto
+Articolo per blog.lucad.cloud: Playwright in CI + **Laya** (decision model CPU/ONNX) + **LLM (DeepSeek)** per triare i fallimenti: fix del test (verificato) quando è il test, bug report quando è il prodotto.
 
 ## Fatto ✓
-- Demo app **TaskDeck** (Next.js + TS) + suite Playwright baseline verde (4/4).
-- **Corpus**: baseline + 9 scenari in `scenarios/`; raccolta completa in `runs/` (+ `runs/flake-evidence`).
-- **Pipeline**: `scripts/triage/{collect,distill,decide,act,eval,verify}.mjs` + `scripts/scenarios/apply.mjs` + `_ablate.mjs` (esperimento).
-- **Step 1+2**: gate onesto (soglia su tutte le route) + input v2 (diff, testSource, errore pulito) + troncamento quantificato (max_len 512/domanda) + ablazione (anche il digest perfetto resta sotto soglia → limite = modello base). Laya zero-shot: 17/17 astensioni, 0 errori.
-- **Step 4 — live con LLM (DeepSeek)** ✓ (dettagli sotto).
-- Skill `parallel-agents` in `D:\openwork\.opencode\skills\`.
+- Demo app **TaskDeck** + suite Playwright baseline verde; **repo GitHub** `lucad87/qa-triage-demo` + **CI** (e2e + triage) verde.
+- **Pipeline**: `scripts/triage/{collect,distill,decide,act,eval,verify}.mjs` e `scripts/scenarios/{apply,sync-manifest}.mjs`.
+- **Corpus**: **24 scenari** (11 product, 9 test, 2 flake, 2 environment) + baseline + `flake-evidence`; stati etichettati in `runs/`.
+- **Step 1+2**: gate onesto (soglia su tutte le route) + input v2 (diff, testSource, errore pulito) + ablazione → limite = modello base; Laya zero-shot astiene su tutto.
+- **Step 4** (LLM live): deep-triage **16/17** corretto; patch test generate e **verificate PASS**; 10 bug report; env alert.
+- **Punto 1 — DATASET FINE-TUNE** ✓ (2026-09-28): `scripts/triage/make-finetune-dataset.mjs` → `finetune/` con **42 righe** (train 32 / val 10; product 17, test 16, environment 6, flake 3), formato = `LocalLLaMA/typed-decisions` (notebook ufficiale Laya). Split per gruppo-scenario (no leakage). Dettagli in `finetune/README.md`.
+  - Nota di qualità: `product-post-accepts-blank` **scartato** (fallimento non deterministico — race nel test) e sostituito con `product-create-duplicates`. La verifica live della raccolta è servita proprio a questo.
 
-## Step 4 — risultati (2026-09-28, live)
-- **18 stati processati, 0 errori**; **deep-triage LLM vs ground truth: 16/17** (94%):
-  - test 4/4 ✓ · product 8/8 ✓ · environment 4/4 ✓ · **flake 0/1** ← disaccordo difendibile: la randomness iniettata è nel codice app (`Math.random() < 0.5`); l'LLM la legge come regressione di prodotto e spiega esplicitamente che il retry-passed non è flakiness del test. Il nostro label dice flake → caso di scuola per l'ambiguità della tassonomia (da raccontare onestamente nell'articolo).
-- **Patch test generate e VERIFICATE** con `verify.mjs` (ri-esecuzione dello spec):
-  - `test-renamed-label-drift` → fix del locator in tutti e 3 i test → **PASS** (scenario applicato);
-  - `test-wrong-expected-count` → candidato = spec corrente (il fix è ripristinare l'asserzione pre-guasto) → **PASS** (senza scenario); rationale LLM con prosa confusa ma artefatto corretto → esempio del perché PR + revisione umana.
-- **Bug report prodotto**: 10 generati (es. "counter" = qualità pubblicabile: riproduzione, evidenza citata, causa dal diff, fix suggerito).
-- **Env alert**: `runs/env-wrong-baseurl/actions/env-alerts.md` (4 sezioni, ECONNREFUSED su 3999 dal diff di config).
-- **Registro flake**: `flakes.jsonl` mai scritto — nessuno stato classificato flake (vedi sopra). Nota: la flakiness va riconosciuta dallo storico dei retry, non dal singolo fallimento.
-- Artefatti in `runs/*/actions/` (manifest + triage json + report/candidate/rationale).
+## Da fare dopo — percorso fine-tune di Laya
+2. **Training** — notebook ufficiale `laya_finetune_typed_decisions_2xT4_kaggle.ipynb` (Kaggle, 2×T4 gratis): caricare `finetune/laya-triage.train.jsonl` (+ val) al posto del dataset pubblico; include la calibrazione delle temperature.
+3. **Export ONNX** — `export/export_onnx.py` dal checkpoint fine-tuned → bundle per `@receptron/laya` (o `--modelDir`-style in `decide.mjs`).
+4. **Misura before/after** — rilanciare `decide` + `eval` col modello nuovo: copertura/accuratezza vs astensioni (il "prima" è in `runs/eval-report.md`).
 
-## Da fare dopo (in ordine di decisione)
-3. **(Opzionale) Fine-tune di Laya** — decisione col proprietario, con lo Step 4 in mano: la pipeline funziona end-to-end col LLM; il fine-tune sposterebbe volume sul modello locale (costo/latenza). Serve GPU (Kaggle 2×T4 o RTX 3070) + espansione del corpus.
-5. **CI (GitHub Actions)**: job Playwright → job triage (distill → decide → act). Cache ONNX o `modelDir`.
-6. **Articolo EN** per blog.lucad.cloud: bozza + diagrammi + numeri reali (v0 1/17 → gate 0 automatiche/17 astensioni → LLM 16/17) + sezione ablation + casi (drift fix verificato, bug report, divergenza flake) + link repo demo.
-7. **Rifiniture**: fix cosmetico `classifyResults` in `collect.mjs`; estendere `verify.mjs` per scenari che editano lo spec (oggi: usarlo senza `--scenario`); `git init` + remote GitHub; pulizia file interni (`NEXT-STEPS.md`, `_ablate.mjs`) prima della pubblicazione.
+## Altri filoni aperti
+- **Generatore locale al posto di DeepSeek** (Qwen3-4B-Instruct-2507 + ONNX GenAI int4 + constrained decoding): Esperimento 1 = prompt-only sugli stati del corpus, confronto qualità/latenza con DeepSeek (16/17). Decidere se farlo prima o dopo il training di Laya.
+- **Articolo**: bozza v0.1 in `D:\openwork\posts\playwright-failure-triage-draft.md` — restano figure, revisione, e repo da rendere pubblico alla pubblicazione.
+- **Rifiniture**: `classifyResults` in `collect.mjs` (flaky prima di failed); `verify.mjs` per scenari che editano lo spec (oggi usarlo senza `--scenario`); pulizia file interni prima della pubblicazione.
 
 ## Note operative
-- Chiave DeepSeek in env (`LPR_AMXVA_DEEPSEEK_API_KEY`); Step 4 ≈ decine di chiamate, costo pochi centesimi.
-- `@receptron/laya` 0.1.2; config: max_len 512/domanda, head_max_len 192, temperature calibrate.
+- Chiave DeepSeek in env (`LPR_AMXVA_DEEPSEEK_API_KEY`).
+- `@receptron/laya` 0.1.2; cache modello `%USERPROFILE%\.cache\receptron-laya` (~1.6 GB, calda).
 - Il blog (`lucad87/qa-blog`) NON si tocca.

@@ -1,0 +1,20 @@
+{
+  "id": "test-checkbox-name-stale",
+  "class": "test",
+  "title": "Stale checkbox name: spec targets \"Mark ... as complete\" while the app renders \"as done\"",
+  "summary": "e2e/tasks.spec.ts now clicks the completion checkbox through getByRole(\"checkbox\", { name: \"Mark Ship the demo as complete\" }) while app/page.tsx intentionally renders the accessible name \"Mark Ship the demo as done\". The locator times out and the finishing test fails. Ground truth: the app behavior is intended and the fix belongs to the TEST (restore the stale name).",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();",
+      "replace": "  await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as complete\" }).click();"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

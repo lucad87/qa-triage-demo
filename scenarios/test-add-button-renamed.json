@@ -1,0 +1,27 @@
+{
+  "id": "test-add-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a button named \"Create\" while the app button is \"Add\"",
+  "summary": "e2e/tasks.spec.ts now locates the submit button with getByRole(\"button\", { name: \"Create\" }) in all three tests that create a task, while app/page.tsx still intentionally renders the label \"Add\". The locator times out and the three tests fail. Ground truth: the app behavior is intended and the fix belongs to the TEST (restore the stale locator to \"Add\").",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();",
+      "replace": "  await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n  await page.getByRole(\"button\", { name: \"Create\" }).click();"
+    },
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();",
+      "replace": "  await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n  await page.getByRole(\"button\", { name: \"Create\" }).click();"
+    },
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByLabel(\"New task\").fill(\"   \");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();",
+      "replace": "  await page.getByLabel(\"New task\").fill(\"   \");\n  await page.getByRole(\"button\", { name: \"Create\" }).click();"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

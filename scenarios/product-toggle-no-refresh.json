@@ -1,0 +1,17 @@
+{
+  "id": "product-toggle-no-refresh",
+  "class": "product",
+  "title": "toggle() no longer reloads after the PATCH",
+  "summary": "app/page.tsx toggle() drops the load() call that used to follow the PATCH, so the client state is never refreshed and the counter keeps its pre-toggle value. The PATCH itself succeeds server-side, but the \"completing a task...\" test fails at the counter assertion.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "  async function toggle(id: string) {\n    await fetch(`/api/tasks/${id}`, { method: \"PATCH\" });\n    await load();\n  }",
+      "replace": "  async function toggle(id: string) {\n    await fetch(`/api/tasks/${id}`, { method: \"PATCH\" });\n  }"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

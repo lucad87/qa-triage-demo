@@ -1,0 +1,23 @@
+{
+  "scenarioId": "env-parallel-workers",
+  "class": "environment",
+  "title": "fullyParallel with 4 workers races the shared store reset",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 17926,
+  "startedAt": "2026-09-28T19:28:25.455Z",
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

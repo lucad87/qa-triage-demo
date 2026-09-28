@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-toggle-no-refresh",
+  "class": "product",
+  "title": "toggle() no longer reloads after the PATCH",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 18746,
+  "startedAt": "2026-09-28T19:31:34.065Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

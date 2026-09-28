@@ -1,14 +1,125 @@
 {
   "version": 1,
   "scenarios": [
-    { "id": "product-counter-counts-all", "class": "product", "file": "scenarios/product-counter-counts-all.json" },
-    { "id": "product-toggle-not-persisted", "class": "product", "file": "scenarios/product-toggle-not-persisted.json" },
-    { "id": "product-done-filter-inverted", "class": "product", "file": "scenarios/product-done-filter-inverted.json" },
-    { "id": "product-create-api-500", "class": "product", "file": "scenarios/product-create-api-500.json" },
-    { "id": "product-empty-state-missing", "class": "product", "file": "scenarios/product-empty-state-missing.json" },
-    { "id": "test-renamed-label-drift", "class": "test", "file": "scenarios/test-renamed-label-drift.json" },
-    { "id": "test-wrong-expected-count", "class": "test", "file": "scenarios/test-wrong-expected-count.json" },
-    { "id": "flake-random-refresh", "class": "flake", "file": "scenarios/flake-random-refresh.json" },
-    { "id": "env-wrong-baseurl", "class": "environment", "file": "scenarios/env-wrong-baseurl.json" }
+    {
+      "id": "product-counter-counts-all",
+      "class": "product",
+      "file": "scenarios/product-counter-counts-all.json"
+    },
+    {
+      "id": "product-toggle-not-persisted",
+      "class": "product",
+      "file": "scenarios/product-toggle-not-persisted.json"
+    },
+    {
+      "id": "product-done-filter-inverted",
+      "class": "product",
+      "file": "scenarios/product-done-filter-inverted.json"
+    },
+    {
+      "id": "product-create-api-500",
+      "class": "product",
+      "file": "scenarios/product-create-api-500.json"
+    },
+    {
+      "id": "product-empty-state-missing",
+      "class": "product",
+      "file": "scenarios/product-empty-state-missing.json"
+    },
+    {
+      "id": "test-renamed-label-drift",
+      "class": "test",
+      "file": "scenarios/test-renamed-label-drift.json"
+    },
+    {
+      "id": "test-wrong-expected-count",
+      "class": "test",
+      "file": "scenarios/test-wrong-expected-count.json"
+    },
+    {
+      "id": "flake-random-refresh",
+      "class": "flake",
+      "file": "scenarios/flake-random-refresh.json"
+    },
+    {
+      "id": "env-wrong-baseurl",
+      "class": "environment",
+      "file": "scenarios/env-wrong-baseurl.json"
+    },
+    {
+      "id": "env-parallel-workers",
+      "class": "environment",
+      "file": "scenarios/env-parallel-workers.json"
+    },
+    {
+      "id": "flake-toggle-random-skip",
+      "class": "flake",
+      "file": "scenarios/flake-toggle-random-skip.json"
+    },
+    {
+      "id": "product-checkbox-disabled",
+      "class": "product",
+      "file": "scenarios/product-checkbox-disabled.json"
+    },
+    {
+      "id": "product-counter-counts-done",
+      "class": "product",
+      "file": "scenarios/product-counter-counts-done.json"
+    },
+    {
+      "id": "product-get-drops-last-task",
+      "class": "product",
+      "file": "scenarios/product-get-drops-last-task.json"
+    },
+    {
+      "id": "product-toggle-no-refresh",
+      "class": "product",
+      "file": "scenarios/product-toggle-no-refresh.json"
+    },
+    {
+      "id": "product-toggle-wrong-key",
+      "class": "product",
+      "file": "scenarios/product-toggle-wrong-key.json"
+    },
+    {
+      "id": "test-add-button-renamed",
+      "class": "test",
+      "file": "scenarios/test-add-button-renamed.json"
+    },
+    {
+      "id": "test-checkbox-name-stale",
+      "class": "test",
+      "file": "scenarios/test-checkbox-name-stale.json"
+    },
+    {
+      "id": "test-counter-testid-typo",
+      "class": "test",
+      "file": "scenarios/test-counter-testid-typo.json"
+    },
+    {
+      "id": "test-heading-text-stale",
+      "class": "test",
+      "file": "scenarios/test-heading-text-stale.json"
+    },
+    {
+      "id": "test-stale-empty-copy",
+      "class": "test",
+      "file": "scenarios/test-stale-empty-copy.json"
+    },
+    {
+      "id": "test-stale-task-fixture",
+      "class": "test",
+      "file": "scenarios/test-stale-task-fixture.json"
+    },
+    {
+      "id": "test-wrong-route",
+      "class": "test",
+      "file": "scenarios/test-wrong-route.json"
+    },
+    {
+      "id": "product-create-duplicates",
+      "class": "product",
+      "file": "scenarios/product-create-duplicates.json"
+    }
   ]
 }

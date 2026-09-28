@@ -1,0 +1,90 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ok 1 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (248ms)
+  x  2 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (5.3s)
+  x  3 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (retry #1) (5.3s)
+  ok 4 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (395ms)
+  ok 5 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (222ms)
+
+
+  1) [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByTestId('todo-count')
+    Expected: "1"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByTestId('todo-count') with timeout 5000ms
+      - waiting for getByTestId('todo-count')
+
+
+      18 |
+      19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+    > 20 |   await expect(page.getByTestId("todo-count")).toHaveText("1");
+         |                                                ^
+      21 | });
+      22 |
+      23 | test("completing a task updates the counter and the Done filter", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:20:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByTestId('todo-count')
+    Expected: "1"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByTestId('todo-count') with timeout 5000ms
+      - waiting for getByTestId('todo-count')
+
+
+      18 |
+      19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+    > 20 |   await expect(page.getByTestId("todo-count")).toHaveText("1");
+         |                                                ^
+      21 | });
+      22 |
+      23 | test("completing a task updates the counter and the Done filter", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:20:48
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+  3 passed (17.9s)
+

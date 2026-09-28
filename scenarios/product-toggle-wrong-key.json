@@ -1,0 +1,17 @@
+{
+  "id": "product-toggle-wrong-key",
+  "class": "product",
+  "title": "Checkbox toggles by task title instead of id",
+  "summary": "The task checkbox in app/page.tsx calls toggle with task.title instead of task.id, so the PATCH targets /api/tasks/<title> and 404s; the task's done flag is never flipped and the UI does not change. The \"completing a task...\" test fails because the active counter still reads 1 after the click.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "                  onChange={() => void toggle(task.id)}",
+      "replace": "                  onChange={() => void toggle(task.title)}"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

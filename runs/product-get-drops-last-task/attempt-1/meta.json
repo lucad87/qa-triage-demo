@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-get-drops-last-task",
+  "class": "product",
+  "title": "listTasks() drops the most recent task",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 29840,
+  "startedAt": "2026-09-28T19:30:56.383Z",
+  "changedFiles": [
+    "lib/store.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "product-counter-counts-done",
+  "class": "product",
+  "title": "Active counter counts done tasks instead of active ones",
+  "summary": "app/page.tsx computes activeCount with task.done instead of !task.done, so the counter tracks completed tasks. Right after creating a task it reads 0 instead of 1, and the \"creating a task...\" test fails at its counter assertion.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "  const activeCount = tasks.filter((task) => !task.done).length;",
+      "replace": "  const activeCount = tasks.filter((task) => task.done).length;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

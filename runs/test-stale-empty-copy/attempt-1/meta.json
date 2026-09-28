@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-stale-empty-copy",
+  "class": "test",
+  "title": "Stale copy: spec asserts \"Nothing to do yet.\" while the app renders \"Nothing here yet.\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 18593,
+  "startedAt": "2026-09-28T19:37:08.278Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

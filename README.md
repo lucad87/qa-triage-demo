@@ -2,15 +2,16 @@
 
 Companion repo for the article **“Test Bug or Product Bug? Triaging Playwright Failures with a CPU-Only Decision Model and an LLM”** (blog.lucad.cloud).
 
-**TaskDeck** is a tiny Next.js task board — the system under test. Around it: nine injected fault scenarios with ground-truth labels, and a triage pipeline that turns Playwright failures into verified test fixes or evidence-backed bug reports.
+**TaskDeck** is a tiny Next.js task board — the system under test. Around it: 24 injected fault scenarios with ground-truth labels, a triage pipeline that turns Playwright failures into verified test fixes or evidence-backed bug reports, and the fine-tuning dataset for the decision model.
 
 ## Layout
 
 - `app/` — TaskDeck: list, filters, counter, empty state; in-memory API with a test reset hook.
 - `e2e/` — Playwright suite (one spec, four tests).
-- `scenarios/` — nine fault scenarios (5 product, 2 test, 1 flake, 1 environment) with apply/revert tooling.
-- `scripts/triage/` — the pipeline: `collect` → `distill` → `decide` (Laya) → `act` (DeepSeek) → `eval` → `verify`.
+- `scenarios/` — 24 fault scenarios (11 product, 9 test, 2 flake, 2 environment) with apply/revert tooling; `node scripts/scenarios/sync-manifest.mjs` rebuilds the manifest after adding scenario files.
+- `scripts/triage/` — the pipeline: `collect` → `distill` → `decide` (Laya) → `act` (DeepSeek) → `eval` → `verify`, plus `make-finetune-dataset` and `_ablate` (experiment).
 - `runs/` — the collected corpus: per-attempt Playwright results, distilled states, decisions, generated actions.
+- `finetune/` — the fine-tuning dataset for Laya, generated from `runs/` (see `finetune/README.md`).
 - `NEXT-STEPS.md` — working notes (Italian).
 
 ## Quick start
@@ -53,6 +54,14 @@ node scripts/triage/eval.mjs
 node scripts/triage/verify.mjs --candidate runs/<id>/actions/state-01-spec.candidate.ts \
   --spec e2e/tasks.spec.ts --grep "<test title>" [--scenario <id>]
 ```
+
+## Fine-tuning dataset
+
+```bash
+node scripts/triage/make-finetune-dataset.mjs   # runs/ -> finetune/*.jsonl
+```
+
+Rows mirror `LocalLLaMA/typed-decisions` (the dataset used by Laya's official fine-tuning notebook). See [`finetune/README.md`](finetune/README.md).
 
 ## CI
 

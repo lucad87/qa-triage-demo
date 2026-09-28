@@ -1,0 +1,326 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\openwork\\qa-triage-demo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "D:\\openwork\\qa-triage-demo\\playwright.config.ts",
+    "rootDir": "D:/openwork/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/openwork/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/openwork/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": true,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5269,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:10:49",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 49,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  8 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m\"/\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"TaskDeck\"\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"Nothing to do yet.\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 49,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n\n\n   8 |   await page.goto(\"/\");\n   9 |   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n> 10 |   await expect(page.getByTestId(\"empty-state\")).toHaveText(\"Nothing to do yet.\");\n     |                                                 ^\n  11 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  12 | });\n  13 |\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:10:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:37:14.420Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 49,
+                    "line": 10
+                  }
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5247,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:10:49",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 49,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  8 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m\"/\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"TaskDeck\"\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"Nothing to do yet.\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 49,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('empty-state')\nExpected: \u001b[32m\"Nothing \u001b[7mto do\u001b[27m yet.\"\u001b[39m\nReceived: \u001b[31m\"Nothing \u001b[7mhere\u001b[27m yet.\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveText\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\u001b[2m    14 × locator resolved to <p data-testid=\"empty-state\">Nothing here yet.</p>\u001b[22m\n\u001b[2m       - unexpected value \"Nothing here yet.\"\u001b[22m\n\n\n   8 |   await page.goto(\"/\");\n   9 |   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n> 10 |   await expect(page.getByTestId(\"empty-state\")).toHaveText(\"Nothing to do yet.\");\n     |                                                 ^\n  11 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  12 | });\n  13 |\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:10:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T19:37:20.120Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 49,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 278,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:37:25.799Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 334,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:37:26.154Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 191,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:37:26.496Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T19:37:09.123Z",
+    "duration": 17693.321,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

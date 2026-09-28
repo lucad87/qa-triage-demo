@@ -1,0 +1,23 @@
+{
+  "scenarioId": "flake-toggle-random-skip",
+  "class": "flake",
+  "title": "toggle() randomly skips the PATCH before refetching",
+  "attempt": 3,
+  "retries": 1,
+  "exitCode": 0,
+  "durationMs": 7433,
+  "startedAt": "2026-09-28T19:29:10.167Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": false,
+  "totals": {
+    "failed": 0,
+    "flaky": 0,
+    "passed": 4
+  }
+}

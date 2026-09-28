@@ -1,0 +1,25 @@
+{
+  "id": "env-parallel-workers",
+  "class": "environment",
+  "title": "fullyParallel with 4 workers races the shared store reset",
+  "summary": "playwright.config.ts enables fullyParallel and 4 workers while each test still resets one shared, server-side in-process store in beforeEach; concurrent workers reset the store under one another, so tests observe wiped or leftover tasks (e.g. the create test's counter expectation). This is an environment/config misconfiguration, not an app bug.",
+  "edits": [
+    {
+      "file": "playwright.config.ts",
+      "find": "  fullyParallel: false,",
+      "replace": "  fullyParallel: true,"
+    },
+    {
+      "file": "playwright.config.ts",
+      "find": "  workers: 1,",
+      "replace": "  workers: 4,"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "changedFiles": [
+    "playwright.config.ts"
+  ]
+}

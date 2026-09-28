@@ -1,0 +1,29 @@
+{
+  "test": "empty board shows the empty state",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (5.3s); retry failed (5.2s)",
+  "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('empty-state')\nExpected: \"Nothing to do yet.\"\nReceived: \"Nothing here yet.\"\nTimeout:  5000ms",
+  "diff": "--- e2e/tasks.spec.ts\n-   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n-   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n+   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n+   await expect(page.getByTestId(\"empty-state\")).toHaveText(\"Nothing to do yet.\");",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "durationMs": 5247
+}

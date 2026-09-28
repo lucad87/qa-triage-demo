@@ -1,0 +1,17 @@
+{
+  "id": "product-checkbox-disabled",
+  "class": "product",
+  "title": "Task checkbox is rendered disabled",
+  "summary": "The task checkbox in app/page.tsx gets a disabled attribute, so it can never be toggled. Playwright's click on \"Mark <task> as done\" waits for the element to become enabled and the \"completing a task...\" test fails.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "                  type=\"checkbox\"\n                  checked={task.done}",
+      "replace": "                  type=\"checkbox\"\n                  disabled\n                  checked={task.done}"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

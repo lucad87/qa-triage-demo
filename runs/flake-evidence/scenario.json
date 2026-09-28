@@ -1,0 +1,11 @@
+{
+  "id": "flake-evidence",
+  "class": "flake",
+  "title": "Flake evidence: retry passed (flake scenario, attempt 4)",
+  "summary": "Sub-run of flake-random-refresh (attempt 4): the 'blank tasks are ignored' test failed on the first attempt and passed on retry, carrying explicit retry evidence in the state. Ground truth: flake (nondeterminism, no new code change vs the original scenario).",
+  "edits": [],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "blank tasks are ignored"
+  }
+}

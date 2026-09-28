@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-counter-testid-typo",
+  "class": "test",
+  "title": "Spec reads testid \"todo-count\" in one test while the app exposes \"active-count\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 18786,
+  "startedAt": "2026-09-28T19:36:30.555Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

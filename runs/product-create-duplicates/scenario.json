@@ -1,0 +1,20 @@
+{
+  "id": "product-create-duplicates",
+  "class": "product",
+  "title": "Creating a task inserts two copies",
+  "summary": "lib/store.ts createTask pushes the new task twice (the second copy gets a suffixed id), so one Add produces two list items and the active counter reads \"2\" instead of \"1\". The \"creating a task shows it in the list and updates the counter\" test fails at its counter assertion. Ground truth: the app is broken; the test is correct.",
+  "edits": [
+    {
+      "file": "lib/store.ts",
+      "find": "  state.tasks.push(task);\n  return task;",
+      "replace": "  state.tasks.push(task, { ...task, id: `${task.id}dup` });\n  return task;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "changedFiles": [
+    "lib/store.ts"
+  ]
+}

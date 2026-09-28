@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T19:43:11.360Z",
+  "source": "runs\\test-stale-task-fixture\\attempt-1\\results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "creating a task shows it in the list and updates the counter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-wrong-route",
+  "class": "test",
+  "title": "Spec navigates to \"/tasks\", a route that does not exist",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 200464,
+  "startedAt": "2026-09-28T19:37:45.953Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

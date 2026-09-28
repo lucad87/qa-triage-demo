@@ -1,0 +1,26 @@
+{
+  "id": "test-add-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a button named \"Create\" while the app button is \"Add\"",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 3,
+        "flaky": 0,
+        "passed": 1
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 190006
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

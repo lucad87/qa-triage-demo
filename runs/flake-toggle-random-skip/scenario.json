@@ -1,0 +1,21 @@
+{
+  "id": "flake-toggle-random-skip",
+  "class": "flake",
+  "title": "toggle() randomly skips the PATCH before refetching",
+  "summary": "toggle() returns early about half the time (Math.random() < 0.5) before sending the PATCH, so a checkbox click is sometimes a no-op and the counter never drops to 0. The spec and the rest of the app are correct; the failure of \"completing a task updates the counter and the Done filter\" is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "  async function toggle(id: string) {\n    await fetch(`/api/tasks/${id}`, { method: \"PATCH\" });",
+      "replace": "  async function toggle(id: string) {\n    if (Math.random() < 0.5) return;\n    await fetch(`/api/tasks/${id}`, { method: \"PATCH\" });"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "repeat": true,
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "id": "test-wrong-route",
+  "class": "test",
+  "title": "Spec navigates to \"/tasks\", a route that does not exist",
+  "summary": "Every test in e2e/tasks.spec.ts now calls page.goto(\"/tasks\") instead of \"/\"; the intended app only serves the board at \"/\", so the first assertion of each test times out on the 404 page. Ground truth: the route in the TEST is wrong.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/\");",
+      "replace": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/tasks\");"
+    },
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "test(\"creating a task shows it in the list and updates the counter\", async ({ page }) => {\n  await page.goto(\"/\");",
+      "replace": "test(\"creating a task shows it in the list and updates the counter\", async ({ page }) => {\n  await page.goto(\"/tasks\");"
+    },
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "test(\"completing a task updates the counter and the Done filter\", async ({ page }) => {\n  await page.goto(\"/\");",
+      "replace": "test(\"completing a task updates the counter and the Done filter\", async ({ page }) => {\n  await page.goto(\"/tasks\");"
+    },
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "test(\"blank tasks are ignored\", async ({ page }) => {\n  await page.goto(\"/\");",
+      "replace": "test(\"blank tasks are ignored\", async ({ page }) => {\n  await page.goto(\"/tasks\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

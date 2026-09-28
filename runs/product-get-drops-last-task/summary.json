@@ -1,0 +1,25 @@
+{
+  "id": "product-get-drops-last-task",
+  "class": "product",
+  "title": "listTasks() drops the most recent task",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 29840
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

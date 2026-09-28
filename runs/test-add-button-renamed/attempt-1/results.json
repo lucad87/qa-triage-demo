@@ -1,0 +1,464 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\openwork\\qa-triage-demo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "D:\\openwork\\qa-triage-demo\\playwright.config.ts",
+    "rootDir": "D:/openwork/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/openwork/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/openwork/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": true,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 228,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:32:18.105Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30098,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 17
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  15 |   await page.goto(\"/\");\n  16 |   await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n> 17 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  18 |\n  19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:17:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:32:18.411Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\\trace.zip"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30102,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 17
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  15 |   await page.goto(\"/\");\n  16 |   await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n> 17 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  18 |\n  19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:17:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T19:32:48.913Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30101,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 26
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  24 |   await page.goto(\"/\");\n  25 |   await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n> 26 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  27 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  28 |\n  29 |   await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:26:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:33:19.494Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\\trace.zip"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30112,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 26
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  24 |   await page.goto(\"/\");\n  25 |   await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n> 26 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  27 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  28 |\n  29 |   await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:26:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T19:33:50.104Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30122,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 39
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  37 |   await page.goto(\"/\");\n  38 |   await page.getByLabel(\"New task\").fill(\"   \");\n> 39 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  40 |\n  41 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  42 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:39:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T19:34:20.697Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium\\trace.zip"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30115,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 54,
+                        "line": 39
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: 'Create' })\u001b[22m\n\n\n  37 |   await page.goto(\"/\");\n  38 |   await page.getByLabel(\"New task\").fill(\"   \");\n> 39 |   await page.getByRole(\"button\", { name: \"Create\" }).click();\n     |                                                      ^\n  40 |\n  41 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  42 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:39:54"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T19:34:51.448Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T19:32:12.753Z",
+    "duration": 189103.90500000003,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
