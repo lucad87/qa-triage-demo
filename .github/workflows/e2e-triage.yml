@@ -90,3 +90,51 @@ jobs:
           name: triage-results
           path: triage/
           if-no-files-found: ignore
+
+  trained-eval:
+    name: Trained-model eval (Laya fine-tuned, CPU)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Kaggle CLI
+        run: python -m pip install --quiet kaggle
+      - name: Fetch fine-tuned model from the Kaggle kernel output
+        env:
+          KAGGLE_USERNAME: lucad87
+          KAGGLE_KEY: ${{ secrets.KAGGLE_API_TOKEN }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+        run: |
+          kaggle kernels output lucad87/laya-triage-train -p model
+          ls -lh model/onnx_fp32
+      - name: Decide with the fine-tuned model (all corpus runs)
+        run: |
+          set -e
+          for d in runs/*/; do
+            if [ -d "${d}states" ] && [ -f "${d}scenario.json" ]; then
+              echo "=== ${d}"
+              node scripts/triage/decide.mjs --states "${d}states" --out "${d}decisions-tuned.json" --model-dir model/onnx_fp32
+              cp "${d}decisions-tuned.json" "${d}decisions.json"
+            fi
+          done
+      - name: Evaluate
+        run: node scripts/triage/eval.mjs
+      - name: Upload eval artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tuned-eval-results
+          path: |
+            runs/eval-report.md
+            runs/eval-report.json
+            runs/*/decisions-tuned.json
+          if-no-files-found: warn

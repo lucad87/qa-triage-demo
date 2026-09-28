@@ -13,14 +13,14 @@
 // >= --conf; below it the state escalates instead of guessing.
 //
 // Usage:
-//   node scripts/triage/decide.mjs --states <dir> --out <file.json> [--conf 0.30] [--min-noul 0.75] [--subfolder <name>]
+//   node scripts/triage/decide.mjs --states <dir> --out <file.json> [--conf 0.30] [--min-noul 0.75] [--subfolder <name>] [--model-dir <path>]
 
 import fs from "node:fs";
 import path from "node:path";
 import { Laya } from "@receptron/laya";
 
 const USAGE =
-  "usage: node scripts/triage/decide.mjs --states <dir> --out <file.json> [--conf 0.30] [--min-noul 0.75] [--subfolder <name>]";
+  "usage: node scripts/triage/decide.mjs --states <dir> --out <file.json> [--conf 0.30] [--min-noul 0.75] [--subfolder <name>] [--model-dir <path>]";
 const DEFAULT_CONF = 0.3;
 const DEFAULT_MIN_NOUL = 0.75;
 
@@ -53,7 +53,7 @@ function parseThreshold(value, flag) {
 }
 
 function parseArgs(argv) {
-  const args = { states: null, out: null, conf: DEFAULT_CONF, minNoul: DEFAULT_MIN_NOUL, subfolder: null, help: false };
+  const args = { states: null, out: null, conf: DEFAULT_CONF, minNoul: DEFAULT_MIN_NOUL, subfolder: null, modelDir: null, help: false };
   for (let i = 0; i < argv.length; i++) {
     const raw = argv[i];
     let flag = raw;
@@ -83,6 +83,9 @@ function parseArgs(argv) {
         break;
       case "--subfolder":
         args.subfolder = takeValue();
+        break;
+      case "--model-dir":
+        args.modelDir = takeValue();
         break;
       case "-h":
       case "--help":
@@ -256,7 +259,10 @@ async function main() {
   const loadStart = performance.now();
   let laya;
   try {
-    laya = await Laya.load(args.subfolder ? { subfolder: args.subfolder } : {});
+    const loadOpts = {};
+    if (args.modelDir) loadOpts.modelDir = args.modelDir;
+    else if (args.subfolder) loadOpts.subfolder = args.subfolder;
+    laya = await Laya.load(loadOpts);
   } catch (err) {
     throw new Error(`failed to load the Laya model: ${err.message}`);
   }
@@ -298,7 +304,7 @@ async function main() {
   }
   const output = {
     model: "laya",
-    checkpoint: args.subfolder ?? "default",
+    checkpoint: args.modelDir ?? args.subfolder ?? "default",
     generatedAt: new Date().toISOString(),
     questions: QUESTIONS,
     thresholds: { conf: args.conf, minNoul: args.minNoul },
