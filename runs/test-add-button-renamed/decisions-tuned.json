@@ -1,0 +1,246 @@
+{
+  "model": "laya",
+  "checkpoint": "model/onnx_fp32",
+  "generatedAt": "2026-09-28T21:00:53.331Z",
+  "questions": {
+    "origin": {
+      "type": "choice",
+      "instructions": "What is the most likely origin of this Playwright test failure?",
+      "criteria": {
+        "test": "the test is wrong or outdated: selector drift, stale assertion, wrong fixture data, missing wait inside the test",
+        "product": "the app under test is broken: a real regression the test correctly detects",
+        "flake": "timing or randomness: the same test passes on retry with no code change",
+        "environment": "test environment, browser, ports or infrastructure misconfiguration"
+      }
+    },
+    "test_side": {
+      "type": "noul",
+      "instructions": "Does this failure originate in the test rather than the product?"
+    },
+    "product_side": {
+      "type": "noul",
+      "instructions": "Is this a genuine regression of the app under test that the test correctly detects?"
+    },
+    "severity": {
+      "type": "score",
+      "instructions": "How severe is this failure for the product?",
+      "criteria": [
+        "cosmetic",
+        "degraded behavior",
+        "broken user flow",
+        "data loss or auth outage"
+      ]
+    }
+  },
+  "thresholds": {
+    "conf": 0.3,
+    "minNoul": 0.75
+  },
+  "decisions": [
+    {
+      "state": "state-01.json",
+      "test": "creating a task shows it in the list and updates the counter",
+      "answers": {
+        "origin": {
+          "type": "choice",
+          "choice": "product",
+          "probabilities": {
+            "test": 0.3308,
+            "product": 0.3867,
+            "flake": 0.138,
+            "environment": 0.1444
+          },
+          "confidence": 0.0722,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "test_side": {
+          "type": "noul",
+          "noul": 0.2972,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "product_side": {
+          "type": "noul",
+          "noul": 0.0642,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "severity": {
+          "type": "score",
+          "score": 1.2808,
+          "legend": {
+            "0": "cosmetic",
+            "1": "degraded behavior",
+            "2": "broken user flow",
+            "3": "data loss or auth outage"
+          },
+          "probabilities": {
+            "0": 0.2159,
+            "1": 0.4081,
+            "2": 0.2555,
+            "3": 0.1206
+          },
+          "confidence": 0.0619,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 3578,
+        "output_tokens": 0
+      },
+      "route": "escalate",
+      "reasons": [
+        "origin=product (p=0.39, conf=0.07)",
+        "product_side=0.06",
+        "conf 0.07 < 0.30 → escalate",
+        "product_side 0.06 < 0.75 → escalate"
+      ],
+      "timingMs": 40061
+    },
+    {
+      "state": "state-02.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "answers": {
+        "origin": {
+          "type": "choice",
+          "choice": "product",
+          "probabilities": {
+            "test": 0.3434,
+            "product": 0.4218,
+            "flake": 0.0964,
+            "environment": 0.1385
+          },
+          "confidence": 0.1124,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "test_side": {
+          "type": "noul",
+          "noul": 0.2264,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "product_side": {
+          "type": "noul",
+          "noul": 0.1093,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "severity": {
+          "type": "score",
+          "score": 1.3711,
+          "legend": {
+            "0": "cosmetic",
+            "1": "degraded behavior",
+            "2": "broken user flow",
+            "3": "data loss or auth outage"
+          },
+          "probabilities": {
+            "0": 0.2066,
+            "1": 0.3594,
+            "2": 0.2902,
+            "3": 0.1438
+          },
+          "confidence": 0.0395,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 3858,
+        "output_tokens": 0
+      },
+      "route": "escalate",
+      "reasons": [
+        "origin=product (p=0.42, conf=0.11)",
+        "product_side=0.11",
+        "conf 0.11 < 0.30 → escalate",
+        "product_side 0.11 < 0.75 → escalate"
+      ],
+      "timingMs": 43785
+    },
+    {
+      "state": "state-03.json",
+      "test": "blank tasks are ignored",
+      "answers": {
+        "origin": {
+          "type": "choice",
+          "choice": "product",
+          "probabilities": {
+            "test": 0.3141,
+            "product": 0.4016,
+            "flake": 0.1703,
+            "environment": 0.114
+          },
+          "confidence": 0.0773,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "test_side": {
+          "type": "noul",
+          "noul": 0.2761,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "product_side": {
+          "type": "noul",
+          "noul": 0.1176,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "severity": {
+          "type": "score",
+          "score": 1.0132,
+          "legend": {
+            "0": "cosmetic",
+            "1": "degraded behavior",
+            "2": "broken user flow",
+            "3": "data loss or auth outage"
+          },
+          "probabilities": {
+            "0": 0.3734,
+            "1": 0.3448,
+            "2": 0.177,
+            "3": 0.1048
+          },
+          "confidence": 0.0782,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 3258,
+        "output_tokens": 0
+      },
+      "route": "escalate",
+      "reasons": [
+        "origin=product (p=0.40, conf=0.08)",
+        "product_side=0.12",
+        "conf 0.08 < 0.30 → escalate",
+        "product_side 0.12 < 0.75 → escalate"
+      ],
+      "timingMs": 35796
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "byRoute": {
+      "escalate": 3
+    },
+    "avgTimingMs": 39881
+  }
+}
