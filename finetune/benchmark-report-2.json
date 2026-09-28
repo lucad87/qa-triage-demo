@@ -1,0 +1,74 @@
+{
+  "benchmark": "LocalLLaMA/typed-decisions",
+  "model": "Laya (Fine-Tuned 2xT4)",
+  "n_cases": 10,
+  "n_decisions": 50,
+  "metrics": {
+    "accuracy": 0.6,
+    "soft_accuracy": 0.4695,
+    "brier_score": 0.3671,
+    "ece": 0.1741,
+    "score_mae": 0.2399,
+    "within_1_level": 1.0,
+    "latency_p50_ms": 264.2,
+    "latency_p95_ms": 364.8,
+    "kl_divergence": 0.5756,
+    "total_variation": 0.4178
+  },
+  "comparison": [
+    {
+      "Model": "TypeSafe Jev 1.13.0",
+      "Kind": "general",
+      "Accuracy": 0.727,
+      "Soft Acc": 0.58,
+      "Brier": 0.148,
+      "ECE": 0.144,
+      "Score MAE": 0.391,
+      "Within 1 Level": "0.952",
+      "ms/case": 710,
+      "Cost/Case": "$0.0004 (API)"
+    },
+    {
+      "Model": "Laya (Fine-Tuned 2xT4)",
+      "Kind": "fine-tuned",
+      "Accuracy": 0.6,
+      "Soft Acc": 0.469,
+      "Brier": 0.367,
+      "ECE": 0.174,
+      "Score MAE": 0.24,
+      "Within 1 Level": "1.000",
+      "ms/case": 264.2,
+      "Cost/Case": "$0.00 (Self-Hosted)"
+    },
+    {
+      "Model": "ModernBERT-base (149M)",
+      "Kind": "specialist",
+      "Accuracy": 0.646,
+      "Soft Acc": 0.542,
+      "Brier": 0.119,
+      "ECE": 0.179,
+      "Score MAE": 0.444,
+      "Within 1 Level": "0.931",
+      "ms/case": 349,
+      "Cost/Case": "$0.00"
+    },
+    {
+      "Model": "Teacher Self-Agreement",
+      "Kind": "ceiling",
+      "Accuracy": 0.735,
+      "Soft Acc": "-",
+      "Brier": "-",
+      "ECE": "-",
+      "Score MAE": "-",
+      "Within 1 Level": "-",
+      "ms/case": "-",
+      "Cost/Case": "-"
+    }
+  ],
+  "per_workflow": {
+    "playwright-triage": {
+      "n_decisions": 40,
+      "accuracy": 0.6
+    }
+  }
+}
