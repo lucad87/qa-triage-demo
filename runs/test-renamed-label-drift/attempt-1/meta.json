@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-renamed-label-drift",
+  "class": "test",
+  "title": "Stale locator: input aria-label renamed to \"Task title\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 189199,
+  "startedAt": "2026-09-28T17:53:20.544Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 3,
+    "flaky": 0,
+    "passed": 1
+  }
+}

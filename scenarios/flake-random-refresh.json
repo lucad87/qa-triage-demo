@@ -1,0 +1,18 @@
+{
+  "id": "flake-random-refresh",
+  "class": "flake",
+  "title": "load() randomly skips applying fetched tasks",
+  "summary": "After fetching, load() returns early about half the time (Math.random() < 0.5) before applying the tasks or clearing loading, so the UI intermittently stays on \"Loading…\" or shows stale data. The test and the rest of the app logic are correct; the failure is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "    const res = await fetch(\"/api/tasks\");\n    setTasks((await res.json()) as Task[]);\n    setLoading(false);",
+      "replace": "    const res = await fetch(\"/api/tasks\");\n    if (Math.random() < 0.5) return;\n    setTasks((await res.json()) as Task[]);\n    setLoading(false);"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "repeat": true
+}

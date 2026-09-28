@@ -1,0 +1,25 @@
+{
+  "test": "empty board shows the empty state",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (0.0s); retry failed (0.0s)",
+  "error": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999",
+  "diff": "--- playwright.config.ts\n-     baseURL: `http://127.0.0.1:${PORT}`,\n+     baseURL: \"http://127.0.0.1:3999\",",
+  "attachments": [
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "durationMs": 35
+}

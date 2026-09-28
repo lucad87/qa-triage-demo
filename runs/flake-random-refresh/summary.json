@@ -1,0 +1,106 @@
+{
+  "id": "flake-random-refresh",
+  "class": "flake",
+  "title": "load() randomly skips applying fetched tasks",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "empty board shows the empty state"
+      ],
+      "flaky": [],
+      "durationMs": 18549
+    },
+    {
+      "attempt": 2,
+      "exitCode": 1,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 24299
+    },
+    {
+      "attempt": 3,
+      "exitCode": 1,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 3,
+        "flaky": 0,
+        "passed": 1
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 29913
+    },
+    {
+      "attempt": 4,
+      "exitCode": 0,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 13008
+    },
+    {
+      "attempt": 5,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 4,
+        "flaky": 0,
+        "passed": 0
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 41215
+    },
+    {
+      "attempt": 6,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 29671
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

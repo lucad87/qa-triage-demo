@@ -1,0 +1,68 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:38.944Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\test-renamed-label-drift",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\test-renamed-label-drift\\actions",
+  "summary": {
+    "total": 3,
+    "llmCalls": 3,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 3
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "creating a task shows it in the list and updates the counter",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-spec.candidate.ts",
+        "state-01-rationale.md"
+      ],
+      "errors": [],
+      "notes": [
+        "resolved spec: D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts"
+      ],
+      "timingMs": 4753,
+      "deepTriageOrigin": "test"
+    },
+    {
+      "state": "state-02.json",
+      "route": "escalate",
+      "test": "completing a task updates the counter and the Done filter",
+      "llm": true,
+      "artifacts": [
+        "state-02-triage.json",
+        "state-02-spec.candidate.ts",
+        "state-02-rationale.md"
+      ],
+      "errors": [],
+      "notes": [
+        "resolved spec: D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts"
+      ],
+      "timingMs": 4349,
+      "deepTriageOrigin": "test"
+    },
+    {
+      "state": "state-03.json",
+      "route": "escalate",
+      "test": "blank tasks are ignored",
+      "llm": true,
+      "artifacts": [
+        "state-03-triage.json",
+        "state-03-spec.candidate.ts",
+        "state-03-rationale.md"
+      ],
+      "errors": [],
+      "notes": [
+        "resolved spec: D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts"
+      ],
+      "timingMs": 3930,
+      "deepTriageOrigin": "test"
+    }
+  ]
+}

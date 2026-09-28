@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T18:15:58.954Z",
+  "source": "D:\\openwork\\qa-triage-demo\\runs\\flake-random-refresh\\attempt-1\\results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "empty board shows the empty state",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:32.380Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\product-toggle-not-persisted",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\product-toggle-not-persisted\\actions",
+  "summary": {
+    "total": 1,
+    "llmCalls": 1,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 1
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "completing a task updates the counter and the Done filter",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 5109,
+      "deepTriageOrigin": "product"
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #f6f6f7;
+  color: #17181c;
+}
+
+main {
+  max-width: 560px;
+  margin: 48px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-size: 1.6rem;
+}
+
+.tagline {
+  margin: 0 0 20px;
+  color: #5b5e66;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+form input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #c9cbd1;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+button {
+  padding: 9px 14px;
+  border: 1px solid #c9cbd1;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+button[aria-pressed="true"] {
+  background: #17181c;
+  color: #fff;
+  border-color: #17181c;
+}
+
+.filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.count {
+  color: #5b5e66;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+li label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #e4e5e9;
+  border-radius: 8px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: #8b8e96;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #14151a;
+    color: #f2f2f4;
+  }
+
+  .tagline,
+  .count {
+    color: #a3a7b1;
+  }
+
+  form input {
+    background: #1e2026;
+    color: #f2f2f4;
+    border-color: #33363e;
+  }
+
+  button {
+    background: #1e2026;
+    color: #f2f2f4;
+    border-color: #33363e;
+  }
+
+  button[aria-pressed="true"] {
+    background: #f2f2f4;
+    color: #14151a;
+    border-color: #f2f2f4;
+  }
+
+  li label {
+    background: #1e2026;
+    border-color: #2c2f36;
+  }
+
+  .done {
+    color: #767a84;
+  }
+}

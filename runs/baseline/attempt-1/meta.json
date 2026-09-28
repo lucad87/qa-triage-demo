@@ -1,0 +1,18 @@
+{
+  "scenarioId": "baseline",
+  "class": "baseline",
+  "title": "Baseline: suite green",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 0,
+  "durationMs": 7616,
+  "startedAt": "2026-09-28T17:51:09.206Z",
+  "changedFiles": [],
+  "expectedFailure": null,
+  "expectedFailureMet": null,
+  "totals": {
+    "failed": 0,
+    "flaky": 0,
+    "passed": 4
+  }
+}

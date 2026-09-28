@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "empty board shows the empty state",
+  "origin": "product",
+  "rationale": "The diff in app/page.tsx introduces `if (Math.random() < 0.5) return;` before setting tasks and clearing loading state. This is a real regression in the application code that causes the empty-state element to never render roughly half the time, which is exactly what the test detects. The failure reproduced on both the initial attempt and the retry, and the test itself is a straightforward, valid assertion against the documented empty state. The randomness is in the product code, not the test, so this is not a flake or a test-side issue.",
+  "recommendedAction": "Revert or fix the `Math.random() < 0.5` early return in app/page.tsx so the fetch result is always applied and loading is always cleared, then re-run the e2e suite.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:27.913Z"
+}

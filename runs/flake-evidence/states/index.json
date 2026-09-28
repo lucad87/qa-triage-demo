@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T18:30:46.558Z",
+  "source": "runs\\flake-random-refresh\\attempt-4\\results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "blank tasks are ignored",
+      "spec": "tasks.spec.ts",
+      "status": "flaky"
+    }
+  ]
+}

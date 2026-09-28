@@ -1,0 +1,17 @@
+{
+  "id": "test-wrong-expected-count",
+  "class": "test",
+  "title": "Spec asserts counter 2 after creating one task",
+  "summary": "e2e/tasks.spec.ts asserts the active counter shows \"2\" although exactly one active task is created; the app correctly shows 1. Ground truth: the expected value in the TEST is wrong.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");",
+      "replace": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"2\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

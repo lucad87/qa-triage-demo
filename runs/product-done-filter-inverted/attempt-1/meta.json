@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-done-filter-inverted",
+  "class": "product",
+  "title": "Done/active filter predicates swapped",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 18862,
+  "startedAt": "2026-09-28T17:51:56.218Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

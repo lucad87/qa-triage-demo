@@ -1,0 +1,178 @@
+{
+  "model": "laya",
+  "checkpoint": "default",
+  "generatedAt": "2026-09-28T18:17:00.115Z",
+  "questions": {
+    "origin": {
+      "type": "choice",
+      "instructions": "What is the most likely origin of this Playwright test failure?",
+      "criteria": {
+        "test": "the test is wrong or outdated: selector drift, stale assertion, wrong fixture data, missing wait inside the test",
+        "product": "the app under test is broken: a real regression the test correctly detects",
+        "flake": "timing or randomness: the same test passes on retry with no code change",
+        "environment": "test environment, browser, ports or infrastructure misconfiguration"
+      }
+    },
+    "test_side": {
+      "type": "noul",
+      "instructions": "Does this failure originate in the test rather than the product?"
+    },
+    "product_side": {
+      "type": "noul",
+      "instructions": "Is this a genuine regression of the app under test that the test correctly detects?"
+    },
+    "severity": {
+      "type": "score",
+      "instructions": "How severe is this failure for the product?",
+      "criteria": [
+        "cosmetic",
+        "degraded behavior",
+        "broken user flow",
+        "data loss or auth outage"
+      ]
+    }
+  },
+  "thresholds": {
+    "conf": 0.3,
+    "minNoul": 0.75
+  },
+  "decisions": [
+    {
+      "state": "state-01.json",
+      "test": "empty board shows the empty state",
+      "answers": {
+        "origin": {
+          "type": "choice",
+          "choice": "test",
+          "probabilities": {
+            "test": 0.3443,
+            "product": 0.3116,
+            "flake": 0.246,
+            "environment": 0.0981
+          },
+          "confidence": 0.0599,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "test_side": {
+          "type": "noul",
+          "noul": 0.9042,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "product_side": {
+          "type": "noul",
+          "noul": 0.8078,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "severity": {
+          "type": "score",
+          "score": 0.4901,
+          "legend": {
+            "0": "cosmetic",
+            "1": "degraded behavior",
+            "2": "broken user flow",
+            "3": "data loss or auth outage"
+          },
+          "probabilities": {
+            "0": 0.6361,
+            "1": 0.2668,
+            "2": 0.068,
+            "3": 0.0291
+          },
+          "confidence": 0.3321,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 2048,
+        "output_tokens": 0
+      },
+      "route": "escalate",
+      "reasons": [
+        "origin=test (p=0.34, conf=0.06)",
+        "test_side=0.90",
+        "conf 0.06 < 0.30 → escalate"
+      ],
+      "timingMs": 5422
+    },
+    {
+      "state": "state-02.json",
+      "test": "blank tasks are ignored",
+      "answers": {
+        "origin": {
+          "type": "choice",
+          "choice": "test",
+          "probabilities": {
+            "test": 0.3685,
+            "product": 0.2879,
+            "flake": 0.2518,
+            "environment": 0.0917
+          },
+          "confidence": 0.0675,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "test_side": {
+          "type": "noul",
+          "noul": 0.9198,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "product_side": {
+          "type": "noul",
+          "noul": 0.8451,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        },
+        "severity": {
+          "type": "score",
+          "score": 0.7595,
+          "legend": {
+            "0": "cosmetic",
+            "1": "degraded behavior",
+            "2": "broken user flow",
+            "3": "data loss or auth outage"
+          },
+          "probabilities": {
+            "0": 0.4892,
+            "1": 0.3198,
+            "2": 0.1334,
+            "3": 0.0576
+          },
+          "confidence": 0.1722,
+          "rl_agent": {
+            "act_probability": 1
+          }
+        }
+      },
+      "usage": {
+        "input_tokens": 2048,
+        "output_tokens": 0
+      },
+      "route": "escalate",
+      "reasons": [
+        "origin=test (p=0.37, conf=0.07)",
+        "test_side=0.92",
+        "conf 0.07 < 0.30 → escalate"
+      ],
+      "timingMs": 5488
+    }
+  ],
+  "summary": {
+    "total": 2,
+    "byRoute": {
+      "escalate": 2
+    },
+    "avgTimingMs": 5455
+  }
+}

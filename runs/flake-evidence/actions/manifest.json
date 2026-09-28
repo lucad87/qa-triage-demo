@@ -1,0 +1,31 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:31:00.937Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\flake-evidence",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\flake-evidence\\actions",
+  "summary": {
+    "total": 1,
+    "llmCalls": 1,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 1
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "blank tasks are ignored",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4923,
+      "deepTriageOrigin": "product"
+    }
+  ]
+}

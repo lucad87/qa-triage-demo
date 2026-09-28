@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-09-28T18:16:17.194Z",
+  "source": "D:\\openwork\\qa-triage-demo\\runs\\product-create-api-500\\attempt-1\\results.json",
+  "count": 3,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "empty board shows the empty state",
+      "spec": "tasks.spec.ts",
+      "status": "flaky"
+    },
+    {
+      "file": "state-02.json",
+      "test": "creating a task shows it in the list and updates the counter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-03.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

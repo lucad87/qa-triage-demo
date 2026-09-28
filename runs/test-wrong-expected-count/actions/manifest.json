@@ -1,0 +1,34 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:31.965Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\test-wrong-expected-count",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\test-wrong-expected-count\\actions",
+  "summary": {
+    "total": 1,
+    "llmCalls": 1,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 1
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "creating a task shows it in the list and updates the counter",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-spec.candidate.ts",
+        "state-01-rationale.md"
+      ],
+      "errors": [],
+      "notes": [
+        "resolved spec: D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts"
+      ],
+      "timingMs": 5866,
+      "deepTriageOrigin": "test"
+    }
+  ]
+}

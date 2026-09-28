@@ -1,0 +1,23 @@
+{
+  "scenarioId": "flake-random-refresh",
+  "class": "flake",
+  "title": "load() randomly skips applying fetched tasks",
+  "attempt": 3,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 29913,
+  "startedAt": "2026-09-28T17:57:31.774Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": false,
+  "totals": {
+    "failed": 3,
+    "flaky": 0,
+    "passed": 1
+  }
+}

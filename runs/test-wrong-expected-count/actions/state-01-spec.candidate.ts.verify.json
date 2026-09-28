@@ -1,0 +1,15 @@
+{
+  "candidate": "runs/test-wrong-expected-count/actions/state-01-spec.candidate.ts",
+  "spec": "e2e/tasks.spec.ts",
+  "grep": "creating a task shows it in the list and updates the counter",
+  "scenario": null,
+  "exitCode": 0,
+  "passed": true,
+  "durationMs": 6915,
+  "stdoutTail": "\nRunning 1 test using 1 worker\n\n  ok 1 [chromium] › e2e\\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (299ms)\n\n  1 passed (5.8s)\n",
+  "stderrTail": "",
+  "restoredSpec": true,
+  "revertedScenario": null,
+  "treeClean": true,
+  "generatedAt": "2026-09-28T18:31:02.448Z"
+}

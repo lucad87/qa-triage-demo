@@ -1,0 +1,29 @@
+{
+  "test": "empty board shows the empty state",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n});",
+  "project": "chromium",
+  "status": "flaky",
+  "retry": "attempt 1 failed (5.2s); retry passed (0.2s)",
+  "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found",
+  "diff": "--- app/api/tasks/route.ts\n-   return NextResponse.json(createTask(title), { status: 201 });\n+   return NextResponse.json({ error: \"internal error\" }, { status: 500 });\n\n--- app/api/tasks/route.ts\n- import { createTask, listTasks } from \"@/lib/store\";\n+ import { listTasks } from \"@/lib/store\";",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ],
+  "durationMs": 5228
+}

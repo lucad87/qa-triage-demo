@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T18:16:08.285Z",
+  "source": "D:\\openwork\\qa-triage-demo\\runs\\product-counter-counts-all\\attempt-1\\results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

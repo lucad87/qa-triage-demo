@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "empty board shows the empty state",
+  "origin": "environment",
+  "rationale": "The failure is a connection error: `apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999`, and the diff shows `playwright.config.ts` was changed to hardcode `baseURL: \"http://127.0.0.1:3999\"` instead of using the configured `PORT`. The test never reached the app; the server was not listening on 3999, so this is a test-environment/configuration mismatch rather than a product regression or flaky timing issue. Both attempts failed instantly (0.0s), consistent with an unreachable endpoint.",
+  "recommendedAction": "Revert the hardcoded `baseURL` in `playwright.config.ts` to use the configured `PORT` (or start the app on port 3999), then rerun the test to confirm the empty-state assertions pass.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:27.900Z"
+}

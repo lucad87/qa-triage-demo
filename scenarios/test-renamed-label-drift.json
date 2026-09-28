@@ -1,0 +1,17 @@
+{
+  "id": "test-renamed-label-drift",
+  "class": "test",
+  "title": "Stale locator: input aria-label renamed to \"Task title\"",
+  "summary": "The input's accessible name changed to \"Task title\" while e2e/tasks.spec.ts still locates it with getByLabel(\"New task\"), so the locator times out. Ground truth: the app behavior is intended and the fix belongs to the TEST (update the stale locator).",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "          aria-label=\"New task\"",
+      "replace": "          aria-label=\"Task title\""
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

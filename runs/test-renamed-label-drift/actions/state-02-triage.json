@@ -1,0 +1,9 @@
+{
+  "state": "state-02.json",
+  "test": "completing a task updates the counter and the Done filter",
+  "origin": "test",
+  "rationale": "The diff shows app/page.tsx changed the input's aria-label from \"New task\" to \"Task title\", while the test still does page.getByLabel(\"New task\").fill(...). The failure is a deterministic 30s timeout on locator.fill in both the initial attempt and the retry, which rules out flake (no pass on retry) and points to a stale selector rather than a product regression — the app's behavior is intact, only the accessible name the test targets has drifted.",
+  "recommendedAction": "Update the test to use the new accessible name, e.g. page.getByLabel(\"Task title\").fill(\"Ship the demo\") (or better, add a stable data-testid to the input and target that), then re-run the spec.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:32.069Z"
+}

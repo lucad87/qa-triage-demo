@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-create-api-500",
+  "class": "product",
+  "title": "POST /api/tasks always answers 500",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 35464,
+  "startedAt": "2026-09-28T17:52:15.293Z",
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 3,
+    "flaky": 0,
+    "passed": 1
+  }
+}

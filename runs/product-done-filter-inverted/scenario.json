@@ -1,0 +1,20 @@
+{
+  "id": "product-done-filter-inverted",
+  "class": "product",
+  "title": "Done/active filter predicates swapped",
+  "summary": "The visible-task ternary in app/page.tsx swaps the active and done predicates, so the Done filter lists active tasks. After completing the only task and clicking Done, the list no longer contains it and the \"completing a task...\" test fails.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "    filter === \"all\" ? true : filter === \"active\" ? !task.done : task.done,",
+      "replace": "    filter === \"all\" ? true : filter === \"active\" ? task.done : !task.done,"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

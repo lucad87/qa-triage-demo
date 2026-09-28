@@ -1,0 +1,253 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  x  1 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (36ms)
+  x  2 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (retry #1) (35ms)
+  x  3 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (34ms)
+  x  4 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (retry #1) (38ms)
+  x  5 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (34ms)
+  x  6 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (35ms)
+  x  7 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (34ms)
+  x  8 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (retry #1) (34ms)
+
+
+  1) [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ─────────────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999
+    Call log:
+      - → POST http://127.0.0.1:3999/api/test/reset
+        - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36
+        - accept: */*
+        - accept-encoding: gzip,deflate,br
+
+
+      2 |
+      3 | test.beforeEach(async ({ request }) => {
+    > 4 |   await request.post("/api/test/reset");
+        |                 ^
+      5 | });
+      6 |
+      7 | test("empty board shows the empty state", async ({ page }) => {
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:4:17
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium-retry1\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ─────────────────────────
+    [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+    [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+    [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ──────────────────────────────────
+

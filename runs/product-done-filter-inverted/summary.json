@@ -1,0 +1,24 @@
+{
+  "id": "product-done-filter-inverted",
+  "class": "product",
+  "title": "Done/active filter predicates swapped",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 18862
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "completing a task updates the counter and the Done filter",
+  "origin": "product",
+  "rationale": "The diff in app/page.tsx inverts the Done filter logic: `filter === \"active\" ? task.done : !task.done` makes the Done view render non-done tasks and the Active view render done tasks. The test correctly completes a task, sees the counter drop to 0 (so the state update works), then clicks Done and finds no matching task — exactly the symptom of the inverted filter. The failure is deterministic across both attempts (5.4s each), so it is not flake, and the only changed file is the app source, not the test or environment.",
+  "recommendedAction": "Revert the filter ternary in app/page.tsx back to `filter === \"active\" ? !task.done : task.done` (or fix the Done/Active branches) and re-run the tasks.spec.ts suite to confirm the Done filter shows completed tasks.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:28.394Z"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "product-create-api-500",
+  "class": "product",
+  "title": "POST /api/tasks always answers 500",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 3,
+        "flaky": 0,
+        "passed": 1
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 35464
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

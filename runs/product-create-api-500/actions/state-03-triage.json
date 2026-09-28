@@ -1,0 +1,9 @@
+{
+  "state": "state-03.json",
+  "test": "completing a task updates the counter and the Done filter",
+  "origin": "product",
+  "rationale": "The diff shows app/api/tasks/route.ts was changed to drop the createTask import and return a 500 error instead of creating the task. The test fails deterministically on both the initial run and retry (5.3s each) with active-count showing 0 instead of 1, which is exactly the behavior expected when POST /api/tasks returns 500. This is a real regression in the product code, not selector drift, flake, or environment misconfiguration.",
+  "recommendedAction": "Revert or fix the regression in app/api/tasks/route.ts so POST /api/tasks calls createTask and returns 201 with the created task; then re-run the e2e test to confirm the counter and Done filter behave correctly.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:37.146Z"
+}

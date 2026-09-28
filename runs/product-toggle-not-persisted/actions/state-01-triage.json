@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "completing a task updates the counter and the Done filter",
+  "origin": "product",
+  "rationale": "The diff in lib/store.ts changes the toggle logic from `task.done = !task.done` to `task.done = task.done`, which is a no-op. This is a real regression: clicking the checkbox no longer marks the task done, so the active count stays at 1 instead of becoming 0, exactly matching the failure. The test is correct and the failure reproduces on retry, ruling out flake and environment.",
+  "recommendedAction": "Revert the lib/store.ts change so the toggle restores `task.done = !task.done`, then rerun the test to confirm the counter and Done filter behave correctly.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:28.634Z"
+}

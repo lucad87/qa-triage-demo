@@ -1,0 +1,29 @@
+{
+  "test": "completing a task updates the counter and the Done filter",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"completing a task updates the counter and the Done filter\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n\n  await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n\n  await page.getByRole(\"button\", { name: \"Done\" }).click();\n  await expect(page.getByTestId(\"task-list\")).toContainText(\"Ship the demo\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 timedOut (30.1s); retry timedOut (30.1s)",
+  "error": "Test timeout of 30000ms exceeded.\n\nError: locator.fill: Test timeout of 30000ms exceeded.",
+  "diff": "--- app/page.tsx\n-           aria-label=\"New task\"\n+           aria-label=\"Task title\"",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "durationMs": 30073
+}

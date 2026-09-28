@@ -1,0 +1,24 @@
+{
+  "id": "product-counter-counts-all",
+  "class": "product",
+  "title": "Active counter counts every task, not just active ones",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 19813
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

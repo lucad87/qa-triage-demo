@@ -1,0 +1,25 @@
+{
+  "id": "product-empty-state-missing",
+  "class": "product",
+  "title": "Empty state no longer rendered for an empty list",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 29367
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

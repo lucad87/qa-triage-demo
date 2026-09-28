@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-empty-state-missing",
+  "class": "product",
+  "title": "Empty state no longer rendered for an empty list",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 29367,
+  "startedAt": "2026-09-28T17:52:50.969Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-counter-counts-all",
+  "class": "product",
+  "title": "Active counter counts every task, not just active ones",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 19813,
+  "startedAt": "2026-09-28T17:51:17.095Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

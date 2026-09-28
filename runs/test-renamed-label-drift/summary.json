@@ -1,0 +1,26 @@
+{
+  "id": "test-renamed-label-drift",
+  "class": "test",
+  "title": "Stale locator: input aria-label renamed to \"Task title\"",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 3,
+        "flaky": 0,
+        "passed": 1
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 189199
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

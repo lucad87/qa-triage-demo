@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "creating a task shows it in the list and updates the counter",
+  "origin": "test",
+  "rationale": "The diff shows app/page.tsx changed the input's aria-label from \"New task\" to \"Task title\", while the test still uses getByLabel(\"New task\"). The failure is a locator.fill timeout on that stale selector, and it reproduces on both attempts (not flaky). The app's behavior is intact — only the accessible name changed — so this is selector drift in the test, not a product regression.",
+  "recommendedAction": "Update e2e/tasks.spec.ts to use getByLabel(\"Task title\") (or a stable test id) and re-run the test; optionally add a test-id to the input to avoid future label drift.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:27.505Z"
+}

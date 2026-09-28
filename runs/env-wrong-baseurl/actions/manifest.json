@@ -1,0 +1,73 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:32.085Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\env-wrong-baseurl",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\env-wrong-baseurl\\actions",
+  "summary": {
+    "total": 4,
+    "llmCalls": 4,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 4
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "empty board shows the empty state",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "env-alerts.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 1413,
+      "deepTriageOrigin": "environment"
+    },
+    {
+      "state": "state-02.json",
+      "route": "escalate",
+      "test": "creating a task shows it in the list and updates the counter",
+      "llm": true,
+      "artifacts": [
+        "state-02-triage.json",
+        "env-alerts.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 1231,
+      "deepTriageOrigin": "environment"
+    },
+    {
+      "state": "state-03.json",
+      "route": "escalate",
+      "test": "completing a task updates the counter and the Done filter",
+      "llm": true,
+      "artifacts": [
+        "state-03-triage.json",
+        "env-alerts.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 1560,
+      "deepTriageOrigin": "environment"
+    },
+    {
+      "state": "state-04.json",
+      "route": "escalate",
+      "test": "blank tasks are ignored",
+      "llm": true,
+      "artifacts": [
+        "state-04-triage.json",
+        "env-alerts.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 1393,
+      "deepTriageOrigin": "environment"
+    }
+  ]
+}

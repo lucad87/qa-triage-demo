@@ -1,0 +1,565 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "D:\\openwork\\qa-triage-demo\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "D:\\openwork\\qa-triage-demo\\playwright.config.ts",
+    "rootDir": "D:/openwork/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/openwork/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "D:/openwork/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": true,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 36,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T17:59:32.071Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 35,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T17:59:32.477Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-empty-board-shows-the-empty-state-chromium-retry1\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T17:59:32.890Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 38,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T17:59:33.320Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T17:59:33.737Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                },
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 35,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T17:59:34.130Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T17:59:34.524Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                },
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 34,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n",
+                    "stack": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17",
+                    "location": {
+                      "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                      "column": 17,
+                      "line": 4
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 2 |\u001b[39m\n \u001b[90m 3 |\u001b[39m test\u001b[33m.\u001b[39mbeforeEach(\u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 4 |\u001b[39m   \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39mpost(\u001b[32m\"/api/test/reset\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m   |\u001b[39m                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 5 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 6 |\u001b[39m\n \u001b[90m 7 |\u001b[39m test(\u001b[32m\"empty board shows the empty state\"\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                        "column": 17,
+                        "line": 4
+                      },
+                      "message": "Error: apiRequestContext.post: connect ECONNREFUSED 127.0.0.1:3999\nCall log:\n\u001b[2m  - → POST http://127.0.0.1:3999/api/test/reset\u001b[22m\n\u001b[2m    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.8010.12 Safari/537.36\u001b[22m\n\u001b[2m    - accept: */*\u001b[22m\n\u001b[2m    - accept-encoding: gzip,deflate,br\u001b[22m\n\n\n  2 |\n  3 | test.beforeEach(async ({ request }) => {\n> 4 |   await request.post(\"/api/test/reset\");\n    |                 ^\n  5 | });\n  6 |\n  7 | test(\"empty board shows the empty state\", async ({ page }) => {\n    at D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts:4:17"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T17:59:34.904Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "D:\\openwork\\qa-triage-demo\\e2e\\tasks.spec.ts",
+                    "column": 17,
+                    "line": 4
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T17:59:26.802Z",
+    "duration": 8277.437,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

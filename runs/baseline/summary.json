@@ -1,0 +1,22 @@
+{
+  "id": "baseline",
+  "class": "baseline",
+  "title": "Baseline: suite green",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 0,
+      "expectedFailureMet": null,
+      "totals": {
+        "failed": 0,
+        "flaky": 0,
+        "passed": 4
+      },
+      "failed": [],
+      "flaky": [],
+      "durationMs": 7616
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

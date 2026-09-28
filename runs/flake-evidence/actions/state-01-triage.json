@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "blank tasks are ignored",
+  "origin": "product",
+  "rationale": "The diff introduces a real regression in app/page.tsx: `if (Math.random() < 0.5) return;` before `setTasks(...)` and `setLoading(false)`. This means the task list/loading state is only updated ~50% of the time, so the empty-state assertion fails nondeterministically. The test itself is correct and the retry passing is explained by the injected randomness, not by test flakiness. This is a product-side bug that the test correctly detects.",
+  "recommendedAction": "Revert or fix the `Math.random() < 0.5` early return in app/page.tsx so the fetch result is always applied, then rerun the test to confirm it passes deterministically.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:30:57.388Z"
+}

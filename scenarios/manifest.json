@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "scenarios": [
+    { "id": "product-counter-counts-all", "class": "product", "file": "scenarios/product-counter-counts-all.json" },
+    { "id": "product-toggle-not-persisted", "class": "product", "file": "scenarios/product-toggle-not-persisted.json" },
+    { "id": "product-done-filter-inverted", "class": "product", "file": "scenarios/product-done-filter-inverted.json" },
+    { "id": "product-create-api-500", "class": "product", "file": "scenarios/product-create-api-500.json" },
+    { "id": "product-empty-state-missing", "class": "product", "file": "scenarios/product-empty-state-missing.json" },
+    { "id": "test-renamed-label-drift", "class": "test", "file": "scenarios/test-renamed-label-drift.json" },
+    { "id": "test-wrong-expected-count", "class": "test", "file": "scenarios/test-wrong-expected-count.json" },
+    { "id": "flake-random-refresh", "class": "flake", "file": "scenarios/flake-random-refresh.json" },
+    { "id": "env-wrong-baseurl", "class": "environment", "file": "scenarios/env-wrong-baseurl.json" }
+  ]
+}

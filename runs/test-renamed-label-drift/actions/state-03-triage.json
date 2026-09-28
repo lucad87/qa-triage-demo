@@ -1,0 +1,9 @@
+{
+  "state": "state-03.json",
+  "test": "blank tasks are ignored",
+  "origin": "test",
+  "rationale": "The diff shows app/page.tsx changed the input's aria-label from \"New task\" to \"Task title\", but the test still locates it via getByLabel(\"New task\"). The failure is a locator.fill timeout on that stale selector, and it timed out on both the initial attempt and the retry, so it is deterministic selector drift rather than flake or a product regression. The app's blank-task behavior itself is not shown to be broken.",
+  "recommendedAction": "Update the test to use getByLabel(\"Task title\") (or a stable test id) to match the renamed input, then re-run the spec.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:36.247Z"
+}

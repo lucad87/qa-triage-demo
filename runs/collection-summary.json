@@ -1,0 +1,340 @@
+{
+  "startedAt": "2026-09-28T17:59:35.270Z",
+  "retries": 1,
+  "flakeAttempts": 6,
+  "scenarios": [
+    {
+      "id": "baseline",
+      "class": "baseline",
+      "title": "Baseline: suite green",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 0,
+          "expectedFailureMet": null,
+          "totals": {
+            "failed": 0,
+            "flaky": 0,
+            "passed": 4
+          },
+          "failed": [],
+          "flaky": [],
+          "durationMs": 7616
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-counter-counts-all",
+      "class": "product",
+      "title": "Active counter counts every task, not just active ones",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 19813
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-toggle-not-persisted",
+      "class": "product",
+      "title": "toggleTask no longer flips done",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 18876
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-done-filter-inverted",
+      "class": "product",
+      "title": "Done/active filter predicates swapped",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 18862
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-create-api-500",
+      "class": "product",
+      "title": "POST /api/tasks always answers 500",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 3,
+            "flaky": 0,
+            "passed": 1
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 35464
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-empty-state-missing",
+      "class": "product",
+      "title": "Empty state no longer rendered for an empty list",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 29367
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-renamed-label-drift",
+      "class": "test",
+      "title": "Stale locator: input aria-label renamed to \"Task title\"",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 3,
+            "flaky": 0,
+            "passed": 1
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 189199
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-wrong-expected-count",
+      "class": "test",
+      "title": "Spec asserts counter 2 after creating one task",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter"
+          ],
+          "flaky": [],
+          "durationMs": 18706
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "flake-random-refresh",
+      "class": "flake",
+      "title": "load() randomly skips applying fetched tasks",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "empty board shows the empty state"
+          ],
+          "flaky": [],
+          "durationMs": 18549
+        },
+        {
+          "attempt": 2,
+          "exitCode": 1,
+          "expectedFailureMet": false,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 24299
+        },
+        {
+          "attempt": 3,
+          "exitCode": 1,
+          "expectedFailureMet": false,
+          "totals": {
+            "failed": 3,
+            "flaky": 0,
+            "passed": 1
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 29913
+        },
+        {
+          "attempt": 4,
+          "exitCode": 0,
+          "expectedFailureMet": false,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 13008
+        },
+        {
+          "attempt": 5,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 4,
+            "flaky": 0,
+            "passed": 0
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 41215
+        },
+        {
+          "attempt": 6,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 29671
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "env-wrong-baseurl",
+      "class": "environment",
+      "title": "baseURL points at a port nothing is listening on",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 4,
+            "flaky": 0,
+            "passed": 0
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 9241
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    }
+  ],
+  "totals": {
+    "scenarios": 10,
+    "withErrors": 0,
+    "expectedFailureMissed": 0
+  }
+}

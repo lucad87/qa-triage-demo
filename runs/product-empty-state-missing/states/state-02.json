@@ -1,0 +1,29 @@
+{
+  "test": "blank tasks are ignored",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"blank tasks are ignored\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByLabel(\"New task\").fill(\"   \");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();\n\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (5.2s); retry failed (5.3s)",
+  "error": "Error: expect(locator).toBeVisible() failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found",
+  "diff": "--- app/page.tsx\n-       ) : visible.length === 0 ? (\n-         <p data-testid=\"empty-state\">Nothing here yet.</p>\n-       ) : (\n+       ) : visible.length === 0 ? null : (",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "D:\\openwork\\qa-triage-demo\\test-results\\tasks-blank-tasks-are-ignored-chromium-retry1\\trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "durationMs": 5282
+}

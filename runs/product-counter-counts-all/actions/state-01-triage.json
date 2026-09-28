@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "completing a task updates the counter and the Done filter",
+  "origin": "product",
+  "rationale": "The diff shows app/page.tsx changed activeCount from tasks.filter((task) => !task.done).length to tasks.length, which is a real regression: the active counter no longer excludes completed tasks. The test correctly asserts that completing 'Ship the demo' should change active-count from '1' to '0', but the app now keeps it at '1'. The failure is deterministic across both attempts, and the changed file is the app code, not the test.",
+  "recommendedAction": "Revert or fix the activeCount calculation in app/page.tsx to filter out completed tasks, then rerun the failing test.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:25:32.772Z"
+}

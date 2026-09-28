@@ -1,0 +1,59 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:40.370Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\product-create-api-500",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\product-create-api-500\\actions",
+  "summary": {
+    "total": 3,
+    "llmCalls": 3,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 3
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "empty board shows the empty state",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4825,
+      "deepTriageOrigin": "product"
+    },
+    {
+      "state": "state-02.json",
+      "route": "escalate",
+      "test": "creating a task shows it in the list and updates the counter",
+      "llm": true,
+      "artifacts": [
+        "state-02-triage.json",
+        "state-02-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4279,
+      "deepTriageOrigin": "product"
+    },
+    {
+      "state": "state-03.json",
+      "route": "escalate",
+      "test": "completing a task updates the counter and the Done filter",
+      "llm": true,
+      "artifacts": [
+        "state-03-triage.json",
+        "state-03-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4578,
+      "deepTriageOrigin": "product"
+    }
+  ]
+}

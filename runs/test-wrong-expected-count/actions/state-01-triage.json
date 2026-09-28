@@ -1,0 +1,9 @@
+{
+  "state": "state-01.json",
+  "test": "creating a task shows it in the list and updates the counter",
+  "origin": "test",
+  "rationale": "The test source asserts `toHaveText(\"1\")` on the active-count, but the diff shows the expected value was changed to \"2\" — the assertion is stale relative to the intended behavior. The failure is deterministic (both attempt 1 and retry failed with the same 5.3s duration and identical Received: \"1\"), so it is not flake. The task-list assertion passed (the task was created and rendered), meaning the app's create flow works; only the counter expectation is wrong. The escalation record also leans test-side (test_side=0.97) with origin=test as the top choice, and the only changed file is the spec itself.",
+  "recommendedAction": "Update the assertion in e2e/tasks.spec.ts to expect the correct active-count value (\"2\" per the diff) — or, if the app is genuinely supposed to show 1, fix the test to match the app's actual counter semantics — then re-run the test to confirm it passes.",
+  "model": "deepseek-chat",
+  "generatedAt": "2026-09-28T18:29:27.832Z"
+}

@@ -1,0 +1,166 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  x  1 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (5.3s)
+  x  2 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (retry #1) (5.2s)
+  ok 3 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (287ms)
+  ok 4 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (338ms)
+  x  5 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (5.2s)
+  x  6 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (retry #1) (5.3s)
+
+
+  1) [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+       8 |   await page.goto("/");
+       9 |   await expect(page.getByRole("heading", { name: "TaskDeck" })).toBeVisible();
+    > 10 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      11 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      12 | });
+      13 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:10:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+       8 |   await page.goto("/");
+       9 |   await expect(page.getByRole("heading", { name: "TaskDeck" })).toBeVisible();
+    > 10 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      11 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      12 | });
+      13 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:10:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-empty-board-shows-the-empty-state-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ─────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+      39 |   await page.getByRole("button", { name: "Add" }).click();
+      40 |
+    > 41 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      42 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      43 | });
+      44 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:41:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+      39 |   await page.getByRole("button", { name: "Add" }).click();
+      40 |
+    > 41 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      42 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      43 | });
+      44 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:41:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium-retry1\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium-retry1\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium-retry1\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state ─────────────────────────
+    [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ──────────────────────────────────
+  2 passed (28.5s)
+

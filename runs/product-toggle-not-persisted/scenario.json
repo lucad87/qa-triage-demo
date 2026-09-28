@@ -1,0 +1,20 @@
+{
+  "id": "product-toggle-not-persisted",
+  "class": "product",
+  "title": "toggleTask no longer flips done",
+  "summary": "lib/store.ts toggleTask replaced the flip with a no-op self-assignment, so PATCH leaves task.done unchanged and the active counter never drops when a task is checked. The \"completing a task...\" test fails at the counter assertion.",
+  "edits": [
+    {
+      "file": "lib/store.ts",
+      "find": "    task.done = !task.done;",
+      "replace": "    task.done = task.done;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "lib/store.ts"
+  ]
+}

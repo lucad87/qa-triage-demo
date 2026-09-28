@@ -1,0 +1,17 @@
+{
+  "id": "product-counter-counts-all",
+  "class": "product",
+  "title": "Active counter counts every task, not just active ones",
+  "summary": "app/page.tsx computes activeCount as tasks.length, so completed tasks keep counting as active. After checking the only task the counter still reads 1 instead of 0, and the \"completing a task...\" test fails at its counter assertion.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "  const activeCount = tasks.filter((task) => !task.done).length;",
+      "replace": "  const activeCount = tasks.length;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

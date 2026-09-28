@@ -1,0 +1,53 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ok 1 [chromium] › e2e\tasks.spec.ts:7:5 › empty board shows the empty state (232ms)
+  ok 2 [chromium] › e2e\tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (204ms)
+  ok 3 [chromium] › e2e\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (327ms)
+  x  4 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (5.2s)
+  ok 5 [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored (retry #1) (251ms)
+
+
+  1) [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ─────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+      39 |   await page.getByRole("button", { name: "Add" }).click();
+      40 |
+    > 41 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      42 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      43 | });
+      44 |
+        at D:\openwork\qa-triage-demo\e2e\tasks.spec.ts:41:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\tasks-blank-tasks-are-ignored-chromium\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\tasks-blank-tasks-are-ignored-chromium\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 flaky
+    [chromium] › e2e\tasks.spec.ts:36:5 › blank tasks are ignored ──────────────────────────────────
+  3 passed (12.1s)
+

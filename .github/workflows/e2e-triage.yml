@@ -1,0 +1,92 @@
+name: e2e + triage
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    name: Playwright e2e
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Run Playwright suite
+        run: npx playwright test
+      - name: Upload Playwright artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-artifacts
+          path: |
+            artifacts/results.json
+            test-results/
+            playwright-report/
+          if-no-files-found: warn
+
+  triage:
+    name: Failure triage (Laya + DeepSeek)
+    needs: e2e
+    if: always() && needs.e2e.result != 'cancelled'
+    runs-on: ubuntu-latest
+    env:
+      DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Restore Laya ONNX cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/receptron-laya
+          key: laya-onnx-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Download Playwright results
+        uses: actions/download-artifact@v4
+        with:
+          name: playwright-artifacts
+      - name: Distill failures
+        run: |
+          changed=$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" 2>/dev/null || true)
+          node scripts/triage/distill.mjs \
+            --results artifacts/results.json \
+            --changed "$changed" \
+            --out triage/states
+      - name: Decide with Laya (CPU)
+        if: ${{ hashFiles('triage/states/state-*.json') != '' }}
+        run: node scripts/triage/decide.mjs --states triage/states --out triage/decisions.json
+      - name: Act (LLM; dry-run when no API key is configured)
+        if: ${{ hashFiles('triage/decisions.json') != '' }}
+        run: |
+          if [ -z "$DEEPSEEK_API_KEY" ]; then
+            node scripts/triage/act.mjs --run triage --dry-run
+          else
+            node scripts/triage/act.mjs --run triage
+          fi
+      - name: Upload triage results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: triage-results
+          path: triage/
+          if-no-files-found: ignore

@@ -1,0 +1,20 @@
+{
+  "id": "product-empty-state-missing",
+  "class": "product",
+  "title": "Empty state no longer rendered for an empty list",
+  "summary": "The empty branch in app/page.tsx now renders null instead of the empty-state paragraph, so no [data-testid=empty-state] element exists when the list is empty. The \"empty board shows the empty state\" test fails.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "      ) : visible.length === 0 ? (\n        <p data-testid=\"empty-state\">Nothing here yet.</p>\n      ) : (",
+      "replace": "      ) : visible.length === 0 ? null : ("
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

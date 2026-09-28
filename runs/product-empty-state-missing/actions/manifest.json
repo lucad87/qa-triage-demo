@@ -1,0 +1,45 @@
+{
+  "model": "deepseek-chat",
+  "dryRun": false,
+  "generatedAt": "2026-09-28T18:29:36.558Z",
+  "run": "D:\\openwork\\qa-triage-demo\\runs\\product-empty-state-missing",
+  "out": "D:\\openwork\\qa-triage-demo\\runs\\product-empty-state-missing\\actions",
+  "summary": {
+    "total": 2,
+    "llmCalls": 2,
+    "errors": 0,
+    "byRoute": {
+      "escalate": 2
+    }
+  },
+  "states": [
+    {
+      "state": "state-01.json",
+      "route": "escalate",
+      "test": "empty board shows the empty state",
+      "llm": true,
+      "artifacts": [
+        "state-01-triage.json",
+        "state-01-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4490,
+      "deepTriageOrigin": "product"
+    },
+    {
+      "state": "state-02.json",
+      "route": "escalate",
+      "test": "blank tasks are ignored",
+      "llm": true,
+      "artifacts": [
+        "state-02-triage.json",
+        "state-02-product-report.md"
+      ],
+      "errors": [],
+      "notes": [],
+      "timingMs": 4982,
+      "deepTriageOrigin": "product"
+    }
+  ]
+}

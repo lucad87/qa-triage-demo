@@ -1,0 +1,22 @@
+{
+  "id": "product-create-api-500",
+  "class": "product",
+  "title": "POST /api/tasks always answers 500",
+  "summary": "route.ts no longer creates the task: POST returns 500 instead of 201 (and the unused createTask import was dropped). The UI ignores the response status, so the new task never appears and the \"creating a task...\" test fails.",
+  "edits": [
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "  return NextResponse.json(createTask(title), { status: 201 });",
+      "replace": "  return NextResponse.json({ error: \"internal error\" }, { status: 500 });"
+    },
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "import { createTask, listTasks } from \"@/lib/store\";",
+      "replace": "import { listTasks } from \"@/lib/store\";"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}
