@@ -5,6 +5,11 @@ on:
     branches: [main]
   pull_request:
   workflow_dispatch:
+    inputs:
+      collect_only:
+        description: "Scenario ids for collect-corpus (comma list). Use 'all' for the whole corpus. Empty = collect-corpus skipped and trained-eval runs."
+        required: false
+        default: ""
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -91,9 +96,57 @@ jobs:
           path: triage/
           if-no-files-found: ignore
 
+  collect-corpus:
+    name: Collect fault-scenario corpus (Linux)
+    if: github.event_name == 'workflow_dispatch' && inputs.collect_only != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Collect scenarios
+        run: |
+          if [ "${{ inputs.collect_only }}" = "all" ]; then
+            node scripts/triage/collect.mjs
+          else
+            node scripts/triage/collect.mjs --only "${{ inputs.collect_only }}"
+          fi
+      - name: Distill newly collected runs
+        run: |
+          set -e
+          for d in runs/*/; do
+            id=$(basename "$d")
+            if [ "$id" = "baseline" ]; then continue; fi
+            if [ -f "${d}scenario.json" ] && [ -f "${d}attempt-1/results.json" ] && [ ! -d "${d}states" ]; then
+              echo "=== distill ${id}"
+              changed=$(node -p "require('./runs/${id}/scenario.json').changedFiles.join(',')")
+              node scripts/triage/distill.mjs --results "${d}attempt-1/results.json" --changed "$changed" --scenario "${d}scenario.json" --out "${d}states"
+            fi
+          done
+      - name: Regenerate fine-tune dataset
+        run: node scripts/triage/make-finetune-dataset.mjs
+      - name: Upload corpus artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: corpus-runs
+          path: |
+            runs/
+            finetune/
+          if-no-files-found: warn
+
   trained-eval:
     name: Trained-model eval (Laya fine-tuned, CPU)
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && inputs.collect_only == ''
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:

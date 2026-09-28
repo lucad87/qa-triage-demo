@@ -1,0 +1,17 @@
+{
+  "id": "product-empty-state-inverted",
+  "class": "product",
+  "title": "Empty-state condition inverted",
+  "summary": "app/page.tsx renders the empty-state paragraph when visible.length > 0 and the task list otherwise, so an empty board shows an empty list instead of the empty state. The \"empty board shows the empty state\" test fails.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "      ) : visible.length === 0 ? (",
+      "replace": "      ) : visible.length > 0 ? ("
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

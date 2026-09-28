@@ -1,0 +1,17 @@
+{
+  "id": "test-stale-format",
+  "class": "test",
+  "title": "Spec expects active-count formatted as \"0.0\" while the app renders \"0\"",
+  "summary": "The \"empty board shows the empty state\" test asserts the active counter is \"0.0\" while app/page.tsx renders the integer count \"0\", so toHaveText never matches. Ground truth: the expected format in the TEST is stale.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");",
+      "replace": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0.0\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

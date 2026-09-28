@@ -1,0 +1,17 @@
+{
+  "id": "product-create-not-stored",
+  "class": "product",
+  "title": "createTask returns the task without storing it",
+  "summary": "lib/store.ts createTask builds the task and returns it, but no longer pushes it into the store, so POST answers 201 while GET keeps returning an empty list. The new task never appears and the \"creating a task...\" test fails at toContainText.",
+  "edits": [
+    {
+      "file": "lib/store.ts",
+      "find": "  };\n  state.tasks.push(task);\n  return task;",
+      "replace": "  };\n  return task;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

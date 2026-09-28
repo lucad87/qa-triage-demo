@@ -1,0 +1,17 @@
+{
+  "id": "product-done-button-removed",
+  "class": "product",
+  "title": "Done filter button removed from the UI",
+  "summary": "app/page.tsx drops \"done\" from the filter-button list, so only All and Active are rendered and no button named Done exists. The \"completing a task...\" test fails when it tries to click the Done filter.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "        {([\"all\", \"active\", \"done\"] as const).map((value) => (",
+      "replace": "        {([\"all\", \"active\"] as const).map((value) => ("
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

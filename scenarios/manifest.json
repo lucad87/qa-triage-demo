@@ -120,6 +120,101 @@
       "id": "product-create-duplicates",
       "class": "product",
       "file": "scenarios/product-create-duplicates.json"
+    },
+    {
+      "id": "env-https-baseurl",
+      "class": "environment",
+      "file": "scenarios/env-https-baseurl.json"
+    },
+    {
+      "id": "flake-random-post-500",
+      "class": "flake",
+      "file": "scenarios/flake-random-post-500.json"
+    },
+    {
+      "id": "product-add-no-refresh",
+      "class": "product",
+      "file": "scenarios/product-add-no-refresh.json"
+    },
+    {
+      "id": "product-counter-plus-one",
+      "class": "product",
+      "file": "scenarios/product-counter-plus-one.json"
+    },
+    {
+      "id": "product-create-not-stored",
+      "class": "product",
+      "file": "scenarios/product-create-not-stored.json"
+    },
+    {
+      "id": "product-done-button-removed",
+      "class": "product",
+      "file": "scenarios/product-done-button-removed.json"
+    },
+    {
+      "id": "product-double-submit",
+      "class": "product",
+      "file": "scenarios/product-double-submit.json"
+    },
+    {
+      "id": "product-empty-state-inverted",
+      "class": "product",
+      "file": "scenarios/product-empty-state-inverted.json"
+    },
+    {
+      "id": "product-post-hang",
+      "class": "product",
+      "file": "scenarios/product-post-hang.json"
+    },
+    {
+      "id": "product-render-object",
+      "class": "product",
+      "file": "scenarios/product-render-object.json"
+    },
+    {
+      "id": "product-title-overwritten",
+      "class": "product",
+      "file": "scenarios/product-title-overwritten.json"
+    },
+    {
+      "id": "product-toggle-by-index",
+      "class": "product",
+      "file": "scenarios/product-toggle-by-index.json"
+    },
+    {
+      "id": "test-bang-copy-expectation",
+      "class": "test",
+      "file": "scenarios/test-bang-copy-expectation.json"
+    },
+    {
+      "id": "test-done-button-renamed",
+      "class": "test",
+      "file": "scenarios/test-done-button-renamed.json"
+    },
+    {
+      "id": "test-extra-list-expectation",
+      "class": "test",
+      "file": "scenarios/test-extra-list-expectation.json"
+    },
+    {
+      "id": "test-removed-reset",
+      "class": "test",
+      "file": "scenarios/test-removed-reset.json"
+    },
+    {
+      "id": "test-stale-fill-string",
+      "class": "test",
+      "file": "scenarios/test-stale-fill-string.json"
+    },
+    {
+      "id": "test-stale-format",
+      "class": "test",
+      "file": "scenarios/test-stale-format.json"
+    },
+    {
+      "id": "test-wrong-count-expectation",
+      "class": "test",
+      "file": "scenarios/test-wrong-count-expectation.json"
     }
   ]
 }

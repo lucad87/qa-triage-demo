@@ -1,0 +1,17 @@
+{
+  "id": "product-title-overwritten",
+  "class": "product",
+  "title": "createTask stores the literal title \"untitled\"",
+  "summary": "lib/store.ts createTask ignores the title argument and stores \"untitled\", so the created task never shows the typed text. The \"creating a task...\" test fails at toContainText on the task list.",
+  "edits": [
+    {
+      "file": "lib/store.ts",
+      "find": "    title: title.trim(),",
+      "replace": "    title: \"untitled\","
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

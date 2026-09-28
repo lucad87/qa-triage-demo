@@ -1,0 +1,17 @@
+{
+  "id": "test-bang-copy-expectation",
+  "class": "test",
+  "title": "Stale copy: spec asserts \"Write the triage article!\" with a trailing bang",
+  "summary": "The \"creating a task shows it in the list and updates the counter\" test asserts the list contains \"Write the triage article!\" while the created task renders the title without the bang, so toContainText times out. Ground truth: the expected copy in the TEST is stale.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");",
+      "replace": "  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article!\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "id": "test-removed-reset",
+  "class": "test",
+  "title": "Spec drops the per-test reset, so tasks leak into later tests",
+  "summary": "e2e/tasks.spec.ts no longer resets the store in beforeEach, so the task created by the previous test remains in the shared store; \"completing a task updates the counter and the Done filter\" then sees an active count of 2 where it expects 1. Ground truth: the missing reset in the TEST (state leak) is the defect; the app behavior is intended.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "test.beforeEach(async ({ request }) => {\n  await request.post(\"/api/test/reset\");\n});",
+      "replace": "test.beforeEach(async () => {});"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  }
+}

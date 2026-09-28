@@ -1,0 +1,17 @@
+{
+  "id": "product-post-hang",
+  "class": "product",
+  "title": "POST /api/tasks hangs before responding",
+  "summary": "app/api/tasks/route.ts awaits a promise that never resolves before creating or returning the task, so POST never answers and the UI never refetches. The \"creating a task...\" test times out at toContainText on the task list (this scenario is expected to be slow: 5s expect timeouts).",
+  "edits": [
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "  }\n  return NextResponse.json(createTask(title), { status: 201 });",
+      "replace": "  }\n  await new Promise(() => {});\n  return NextResponse.json(createTask(title), { status: 201 });"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  }
+}
