@@ -1,0 +1,20 @@
+{
+  "id": "product-toggle-by-index",
+  "class": "product",
+  "title": "Checkbox toggles by array index instead of task id",
+  "summary": "app/page.tsx calls toggle(String(tasks.indexOf(task))), so the PATCH targets /api/tasks/<index> (0) instead of the task id and the API answers 404. The done flag never flips, the counter keeps reading 1, and the \"completing a task...\" test fails at its counter assertion.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "                  onChange={() => void toggle(task.id)}",
+      "replace": "                  onChange={() => void toggle(String(tasks.indexOf(task)))}"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

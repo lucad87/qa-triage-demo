@@ -1,0 +1,370 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/qa-triage-demo/qa-triage-demo/node_modules/.bin/playwright",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "/home/runner/work/qa-triage-demo/qa-triage-demo/playwright.config.ts",
+    "rootDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+      },
+      "gitCommit": {
+        "shortHash": "1f3b7a4",
+        "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+        "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+        "author": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "committer": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+          },
+          "gitCommit": {
+            "shortHash": "1f3b7a4",
+            "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+            "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+            "author": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "committer": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 596,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:47:56.777Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5458,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    13 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    13 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 47,
+                      "line": 19
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"task-list\"\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m\"Write the triage article!\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"1\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 21 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 47,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    13 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n\n\n  17 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  18 |\n> 19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article!\");\n     |                                               ^\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  21 | });\n  22 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:47:57.525Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 47,
+                    "line": 19
+                  }
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5681,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    14 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    14 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 47,
+                      "line": 19
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"task-list\"\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m\"Write the triage article!\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"1\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 21 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 47,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\u001b[7m!\u001b[27m\"\u001b[39m\nReceived string:    \u001b[31m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\u001b[2m    14 × locator resolved to <ul data-testid=\"task-list\">…</ul>\u001b[22m\n\u001b[2m       - unexpected value \"Write the triage article\"\u001b[22m\n\n\n  17 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  18 |\n> 19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article!\");\n     |                                               ^\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  21 | });\n  22 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T21:48:03.573Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 47,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:48:09.927Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 406,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:48:10.822Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T21:47:50.266Z",
+    "duration": 21033.256,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

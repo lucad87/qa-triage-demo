@@ -1,0 +1,172 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/tasks.spec.ts:5:5 › empty board shows the empty state (563ms)
+  ✓  2 [chromium] › e2e/tasks.spec.ts:12:5 › creating a task shows it in the list and updates the counter (429ms)
+  ✘  3 [chromium] › e2e/tasks.spec.ts:21:5 › completing a task updates the counter and the Done filter (5.5s)
+  ✘  4 [chromium] › e2e/tasks.spec.ts:21:5 › completing a task updates the counter and the Done filter (retry #1) (5.6s)
+  ✘  5 [chromium] › e2e/tasks.spec.ts:34:5 › blank tasks are ignored (5.6s)
+  ✘  6 [chromium] › e2e/tasks.spec.ts:34:5 › blank tasks are ignored (retry #1) (5.6s)
+
+
+  1) [chromium] › e2e/tasks.spec.ts:21:5 › completing a task updates the counter and the Done filter 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('active-count')
+    Expected: "0"
+    Received: "1"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('active-count') with timeout 5000ms
+      - waiting for getByTestId('active-count')
+        - locator resolved to <span data-testid="active-count">2</span>
+        - unexpected value "2"
+        13 × locator resolved to <span data-testid="active-count">1</span>
+           - unexpected value "1"
+
+
+      26 |
+      27 |   await page.getByRole("checkbox", { name: "Mark Ship the demo as done" }).click();
+    > 28 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+         |                                                  ^
+      29 |
+      30 |   await page.getByRole("button", { name: "Done" }).click();
+      31 |   await expect(page.getByTestId("task-list")).toContainText("Ship the demo");
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:28:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('active-count')
+    Expected: "1"
+    Received: "2"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('active-count') with timeout 5000ms
+      - waiting for getByTestId('active-count')
+        14 × locator resolved to <span data-testid="active-count">2</span>
+           - unexpected value "2"
+
+
+      23 |   await page.getByLabel("New task").fill("Ship the demo");
+      24 |   await page.getByRole("button", { name: "Add" }).click();
+    > 25 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+         |                                                  ^
+      26 |
+      27 |   await page.getByRole("checkbox", { name: "Mark Ship the demo as done" }).click();
+      28 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:25:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e/tasks.spec.ts:34:5 › blank tasks are ignored ─────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+      37 |   await page.getByRole("button", { name: "Add" }).click();
+      38 |
+    > 39 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      40 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      41 | });
+      42 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:39:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-blank-tasks-are-ignored-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-blank-tasks-are-ignored-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByTestId('empty-state')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByTestId('empty-state') with timeout 5000ms
+      - waiting for getByTestId('empty-state')
+
+
+      37 |   await page.getByRole("button", { name: "Add" }).click();
+      38 |
+    > 39 |   await expect(page.getByTestId("empty-state")).toBeVisible();
+         |                                                 ^
+      40 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      41 | });
+      42 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:39:49
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-blank-tasks-are-ignored-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-blank-tasks-are-ignored-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › e2e/tasks.spec.ts:21:5 › completing a task updates the counter and the Done filter 
+    [chromium] › e2e/tasks.spec.ts:34:5 › blank tasks are ignored ──────────────────────────────────
+  2 passed (31.4s)
+

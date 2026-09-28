@@ -1,0 +1,25 @@
+{
+  "id": "test-removed-reset",
+  "class": "test",
+  "title": "Spec drops the per-test reset, so tasks leak into later tests",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 32259
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

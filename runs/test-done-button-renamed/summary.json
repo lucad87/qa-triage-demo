@@ -1,0 +1,24 @@
+{
+  "id": "test-done-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a \"Completed\" filter while the app renders \"Done\"",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 69927
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

@@ -1,5 +1,5 @@
 {
-  "startedAt": "2026-09-28T19:44:55.393Z",
+  "startedAt": "2026-09-28T21:52:06.213Z",
   "retries": 1,
   "flakeAttempts": 6,
   "scenarios": [
@@ -19,16 +19,80 @@
           },
           "failed": [],
           "flaky": [],
-          "durationMs": 7940
+          "durationMs": 16860
         }
       ],
       "revertedClean": true,
       "error": null
     },
     {
-      "id": "product-create-duplicates",
+      "id": "env-https-baseurl",
+      "class": "environment",
+      "title": "baseURL uses https while the local server speaks http",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 4,
+            "flaky": 0,
+            "passed": 0
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 10590
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "flake-random-post-500",
+      "class": "flake",
+      "title": "POST /api/tasks randomly fails with a 500 before creating a task",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 0,
+          "expectedFailureMet": false,
+          "totals": {
+            "failed": 0,
+            "flaky": 0,
+            "passed": 4
+          },
+          "failed": [],
+          "flaky": [],
+          "durationMs": 10488
+        },
+        {
+          "attempt": 2,
+          "exitCode": 0,
+          "expectedFailureMet": false,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 15010
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-add-no-refresh",
       "class": "product",
-      "title": "Creating a task inserts two copies",
+      "title": "addTask no longer reloads after the POST",
       "attempts": [
         {
           "attempt": 1,
@@ -44,7 +108,403 @@
             "completing a task updates the counter and the Done filter"
           ],
           "flaky": [],
-          "durationMs": 31317
+          "durationMs": 34011
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-counter-plus-one",
+      "class": "product",
+      "title": "Active counter is off by one",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 4,
+            "flaky": 0,
+            "passed": 0
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 57576
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-create-not-stored",
+      "class": "product",
+      "title": "createTask returns the task without storing it",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 33956
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-done-button-removed",
+      "class": "product",
+      "title": "Done filter button removed from the UI",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 70815
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-double-submit",
+      "class": "product",
+      "title": "Add submits the task twice",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 33992
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-empty-state-inverted",
+      "class": "product",
+      "title": "Empty-state condition inverted",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 4,
+            "flaky": 0,
+            "passed": 0
+          },
+          "failed": [
+            "empty board shows the empty state",
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 106174
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-post-hang",
+      "class": "product",
+      "title": "POST /api/tasks hangs before responding",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 33904
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-render-object",
+      "class": "product",
+      "title": "List item renders the task object instead of its title",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 34040
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-title-overwritten",
+      "class": "product",
+      "title": "createTask stores the literal title \"untitled\"",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter",
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 82713
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "product-toggle-by-index",
+      "class": "product",
+      "title": "Checkbox toggles by array index instead of task id",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 21935
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-bang-copy-expectation",
+      "class": "test",
+      "title": "Stale copy: spec asserts \"Write the triage article!\" with a trailing bang",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "creating a task shows it in the list and updates the counter"
+          ],
+          "flaky": [],
+          "durationMs": 21892
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-done-button-renamed",
+      "class": "test",
+      "title": "Stale locator: spec clicks a \"Completed\" filter while the app renders \"Done\"",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 69927
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-extra-list-expectation",
+      "class": "test",
+      "title": "Spec asserts task-list is visible after a blank submission",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 20167
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-removed-reset",
+      "class": "test",
+      "title": "Spec drops the per-test reset, so tasks leak into later tests",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 2,
+            "flaky": 0,
+            "passed": 2
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter",
+            "blank tasks are ignored"
+          ],
+          "flaky": [],
+          "durationMs": 32259
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-stale-fill-string",
+      "class": "test",
+      "title": "Stale fixture: spec fills \"Ship demo\" while the checkbox locator expects \"Ship the demo\"",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "completing a task updates the counter and the Done filter"
+          ],
+          "flaky": [],
+          "durationMs": 69981
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-stale-format",
+      "class": "test",
+      "title": "Spec expects active-count formatted as \"0.0\" while the app renders \"0\"",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "empty board shows the empty state"
+          ],
+          "flaky": [],
+          "durationMs": 20876
+        }
+      ],
+      "revertedClean": true,
+      "error": null
+    },
+    {
+      "id": "test-wrong-count-expectation",
+      "class": "test",
+      "title": "Spec expects active-count \"1\" on an empty board",
+      "attempts": [
+        {
+          "attempt": 1,
+          "exitCode": 1,
+          "expectedFailureMet": true,
+          "totals": {
+            "failed": 1,
+            "flaky": 0,
+            "passed": 3
+          },
+          "failed": [
+            "empty board shows the empty state"
+          ],
+          "flaky": [],
+          "durationMs": 20866
         }
       ],
       "revertedClean": true,
@@ -52,8 +512,8 @@
     }
   ],
   "totals": {
-    "scenarios": 2,
+    "scenarios": 20,
     "withErrors": 0,
-    "expectedFailureMissed": 0
+    "expectedFailureMissed": 1
   }
 }

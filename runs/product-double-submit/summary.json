@@ -1,0 +1,25 @@
+{
+  "id": "product-double-submit",
+  "class": "product",
+  "title": "Add submits the task twice",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 33992
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

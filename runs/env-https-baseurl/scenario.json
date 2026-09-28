@@ -1,0 +1,20 @@
+{
+  "id": "env-https-baseurl",
+  "class": "environment",
+  "title": "baseURL uses https while the local server speaks http",
+  "summary": "playwright.config.ts points baseURL at https://127.0.0.1:3100 while the webServer still serves plain http on 127.0.0.1:3100, so every page.goto fails the TLS handshake before the app loads. This is an environment/config misconfiguration, not an app bug.",
+  "edits": [
+    {
+      "file": "playwright.config.ts",
+      "find": "    baseURL: `http://127.0.0.1:${PORT}`,",
+      "replace": "    baseURL: \"https://127.0.0.1:3100\","
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "playwright.config.ts"
+  ]
+}

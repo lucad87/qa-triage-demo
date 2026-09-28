@@ -1,0 +1,23 @@
+{
+  "scenarioId": "env-https-baseurl",
+  "class": "environment",
+  "title": "baseURL uses https while the local server speaks http",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 10590,
+  "startedAt": "2026-09-28T21:38:42.848Z",
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

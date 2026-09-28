@@ -1,0 +1,25 @@
+{
+  "test": "empty board shows the empty state",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"empty board shows the empty state\", async ({ page }) => {\n  await page.goto(\"/\");\n  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (0.1s); retry failed (0.1s)",
+  "error": "Error: apiRequestContext.post: write EPROTO 405D9159657F0000:error:0A00010B:SSL routines:tls_validate_record_header:wrong version number:../deps/openssl/openssl/ssl/record/methods/tlsany_meth.c:77:",
+  "diff": "--- playwright.config.ts\n-     baseURL: `http://127.0.0.1:${PORT}`,\n+     baseURL: \"https://127.0.0.1:3100\",",
+  "attachments": [
+    {
+      "name": "error-context",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "durationMs": 50
+}

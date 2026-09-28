@@ -1,0 +1,20 @@
+{
+  "id": "test-wrong-count-expectation",
+  "class": "test",
+  "title": "Spec expects active-count \"1\" on an empty board",
+  "summary": "The \"empty board shows the empty state\" test asserts the active counter shows \"1\" although the board is empty and the app correctly renders \"0\". Ground truth: the expected value in the TEST is wrong.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");",
+      "replace": "  await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

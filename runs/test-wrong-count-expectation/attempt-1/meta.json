@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-wrong-count-expectation",
+  "class": "test",
+  "title": "Spec expects active-count \"1\" on an empty board",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 20866,
+  "startedAt": "2026-09-28T21:51:45.268Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

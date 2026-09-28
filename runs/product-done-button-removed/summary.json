@@ -1,0 +1,24 @@
+{
+  "id": "product-done-button-removed",
+  "class": "product",
+  "title": "Done filter button removed from the UI",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 70815
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

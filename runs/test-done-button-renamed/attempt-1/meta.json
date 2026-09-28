@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-done-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a \"Completed\" filter while the app renders \"Done\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 69927,
+  "startedAt": "2026-09-28T21:48:11.472Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

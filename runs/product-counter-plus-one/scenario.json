@@ -1,0 +1,20 @@
+{
+  "id": "product-counter-plus-one",
+  "class": "product",
+  "title": "Active counter is off by one",
+  "summary": "app/page.tsx adds 1 to activeCount, so an empty board reads \"1\" instead of \"0\". The \"empty board shows the empty state\" test fails at toHaveText(\"0\") on the counter.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "  const activeCount = tasks.filter((task) => !task.done).length;",
+      "replace": "  const activeCount = tasks.filter((task) => !task.done).length + 1;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

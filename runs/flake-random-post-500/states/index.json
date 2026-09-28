@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T21:53:36.187Z",
+  "source": "runs\\flake-random-post-500\\attempt-2\\results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "flaky"
+    }
+  ]
+}

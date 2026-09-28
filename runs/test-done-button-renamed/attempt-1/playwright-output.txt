@@ -1,0 +1,80 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (563ms)
+  ✓  2 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (475ms)
+  ✘  3 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (30.1s)
+  ✘  4 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (30.1s)
+  ✓  5 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (579ms)
+
+
+  1) [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Completed' })
+
+
+      30 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      31 |
+    > 32 |   await page.getByRole("button", { name: "Completed" }).click();
+         |                                                         ^
+      33 |   await expect(page.getByTestId("task-list")).toContainText("Ship the demo");
+      34 | });
+      35 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:32:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: 'Completed' })
+
+
+      30 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      31 |
+    > 32 |   await page.getByRole("button", { name: "Completed" }).click();
+         |                                                         ^
+      33 |   await expect(page.getByTestId("task-list")).toContainText("Ship the demo");
+      34 | });
+      35 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:32:57
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+  3 passed (1.2m)
+

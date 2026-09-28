@@ -1,0 +1,21 @@
+{
+  "id": "flake-random-post-500",
+  "class": "flake",
+  "title": "POST /api/tasks randomly fails with a 500 before creating a task",
+  "summary": "The POST handler in app/api/tasks/route.ts returns 500 about half the time (Math.random() < 0.5) before parsing the body, so task creation silently fails intermittently and the tests that create tasks flake on their list/counter assertions. The spec and the rest of the app logic are correct; the failure is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "export async function POST(request: Request) {\n  const body = (await request.json().catch(() => null)) as { title?: unknown } | null;",
+      "replace": "export async function POST(request: Request) {\n  if (Math.random() < 0.5) return NextResponse.json({ error: \"random failure\" }, { status: 500 });\n  const body = (await request.json().catch(() => null)) as { title?: unknown } | null;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "repeat": true,
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ]
+}

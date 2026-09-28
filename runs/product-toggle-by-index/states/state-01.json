@@ -1,0 +1,29 @@
+{
+  "test": "completing a task updates the counter and the Done filter",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"completing a task updates the counter and the Done filter\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByLabel(\"New task\").fill(\"Ship the demo\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n\n  await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n\n  await page.getByRole(\"button\", { name: \"Done\" }).click();\n  await expect(page.getByTestId(\"task-list\")).toContainText(\"Ship the demo\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (5.5s); retry failed (5.8s)",
+  "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('active-count')\nExpected: \"0\"\nReceived: \"1\"\nTimeout:  5000ms",
+  "diff": "--- app/page.tsx\n-                   onChange={() => void toggle(task.id)}\n+                   onChange={() => void toggle(String(tasks.indexOf(task)))}",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "durationMs": 5768
+}

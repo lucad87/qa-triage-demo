@@ -1,0 +1,25 @@
+{
+  "id": "product-create-not-stored",
+  "class": "product",
+  "title": "createTask returns the task without storing it",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 2,
+        "flaky": 0,
+        "passed": 2
+      },
+      "failed": [
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 33956
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

@@ -1,0 +1,277 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/qa-triage-demo/qa-triage-demo/node_modules/.bin/playwright",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "/home/runner/work/qa-triage-demo/qa-triage-demo/playwright.config.ts",
+    "rootDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+      },
+      "gitCommit": {
+        "shortHash": "1f3b7a4",
+        "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+        "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+        "author": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "committer": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+          },
+          "gitCommit": {
+            "shortHash": "1f3b7a4",
+            "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+            "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+            "author": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "committer": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1343,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:39:00.888Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 446,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:39:02.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 514,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:39:02.854Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:39:03.385Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T21:38:54.471Z",
+    "duration": 9526.912,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

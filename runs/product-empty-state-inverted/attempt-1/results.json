@@ -1,0 +1,633 @@
+{
+  "config": {
+    "argv": [
+      "/opt/hostedtoolcache/node/24.21.0/x64/bin/node",
+      "/home/runner/work/qa-triage-demo/qa-triage-demo/node_modules/.bin/playwright",
+      "test",
+      "--retries=1"
+    ],
+    "configFile": "/home/runner/work/qa-triage-demo/qa-triage-demo/playwright.config.ts",
+    "rootDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": true,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "ci": {
+        "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+      },
+      "gitCommit": {
+        "shortHash": "1f3b7a4",
+        "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+        "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+        "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+        "author": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "committer": {
+          "name": "Luca Donnaloja",
+          "email": "86236568+lucad87@users.noreply.github.com",
+          "time": 1790631450000
+        },
+        "branch": "main"
+      },
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results",
+        "repeatEach": 1,
+        "retries": 1,
+        "metadata": {
+          "ci": {
+            "commitHref": "https://github.com/lucad87/qa-triage-demo/commit/1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "commitHash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "buildHref": "https://github.com/lucad87/qa-triage-demo/actions/runs/36487349607"
+          },
+          "gitCommit": {
+            "shortHash": "1f3b7a4",
+            "hash": "1f3b7a410e526c4a9ef41a1cc7aa0b55ee218094",
+            "subject": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job",
+            "body": "Corpus round 2: 19 new fault scenarios + collect-corpus CI job\n\nNew scenarios: 10 product, 7 test, 1 environment, 1 flake (43 total). Adds a workflow_dispatch job (collect-corpus) that collects scenarios on Linux runners, distills new runs, regenerates the fine-tune dataset, and uploads runs/ + finetune/ as artifacts.\n",
+            "author": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "committer": {
+              "name": "Luca Donnaloja",
+              "email": "86236568+lucad87@users.noreply.github.com",
+              "time": 1790631450000
+            },
+            "branch": "main"
+          },
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "open": "never"
+        }
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "artifacts/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run start:ci",
+      "url": "http://127.0.0.1:3100",
+      "reuseExistingServer": false,
+      "timeout": 180000
+    }
+  },
+  "suites": [
+    {
+      "title": "tasks.spec.ts",
+      "file": "tasks.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "empty board shows the empty state",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5606,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:10:49",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 49,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  8 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m\"/\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"TaskDeck\"\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 49,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n\n   8 |   await page.goto(\"/\");\n   9 |   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n> 10 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n     |                                                 ^\n  11 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  12 | });\n  13 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:10:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:43:17.329Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 49,
+                    "line": 10
+                  }
+                },
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5531,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:10:49",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 49,
+                      "line": 10
+                    },
+                    "snippet": "\u001b[0m \u001b[90m  8 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgoto(\u001b[32m\"/\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m  9 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"heading\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"TaskDeck\"\u001b[39m }))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 10 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 11 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 12 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 13 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 49,
+                        "line": 10
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n\n   8 |   await page.goto(\"/\");\n   9 |   await expect(page.getByRole(\"heading\", { name: \"TaskDeck\" })).toBeVisible();\n> 10 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n     |                                                 ^\n  11 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  12 | });\n  13 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:10:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T21:43:23.564Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 49,
+                    "line": 10
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b4600c2a8c8e5d743bd",
+          "file": "tasks.spec.ts",
+          "line": 7,
+          "column": 5
+        },
+        {
+          "title": "creating a task shows it in the list and updates the counter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5659,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 47,
+                      "line": 19
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"task-list\"\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m\"Write the triage article\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"1\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 21 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 47,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\n\n  17 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  18 |\n> 19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n     |                                               ^\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  21 | });\n  22 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:43:29.784Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 47,
+                    "line": 19
+                  }
+                },
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5646,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 47,
+                      "line": 19
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 17 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 18 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"task-list\"\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m\"Write the triage article\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                               \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"1\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 21 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 22 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 47,
+                        "line": 19
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('task-list')\nExpected substring: \u001b[32m\"Write the triage article\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" getByTestId('task-list') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('task-list')\u001b[22m\n\n\n  17 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  18 |\n> 19 |   await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n     |                                               ^\n  20 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  21 | });\n  22 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T21:43:36.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 47,
+                    "line": 19
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-be17e0c9b530c033abd4",
+          "file": "tasks.spec.ts",
+          "line": 14,
+          "column": 5
+        },
+        {
+          "title": "completing a task updates the counter and the Done filter",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30111,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 76,
+                        "line": 29
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('checkbox', { name: 'Mark Ship the demo as done' })\u001b[22m\n\n\n  27 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  28 |\n> 29 |   await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n     |                                                                            ^\n  30 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  31 |\n  32 |   await page.getByRole(\"button\", { name: \"Done\" }).click();\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:29:76"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:43:42.460Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip"
+                    }
+                  ]
+                },
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "timedOut",
+                  "duration": 30108,
+                  "error": {
+                    "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m",
+                    "stack": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                  },
+                  "errors": [
+                    {
+                      "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
+                    },
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 76,
+                        "line": 29
+                      },
+                      "message": "Error: locator.click: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('checkbox', { name: 'Mark Ship the demo as done' })\u001b[22m\n\n\n  27 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n  28 |\n> 29 |   await page.getByRole(\"checkbox\", { name: \"Mark Ship the demo as done\" }).click();\n     |                                                                            ^\n  30 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  31 |\n  32 |   await page.getByRole(\"button\", { name: \"Done\" }).click();\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:29:76"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T21:44:13.242Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip"
+                    }
+                  ]
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-719b96d19c45a22272eb",
+          "file": "tasks.spec.ts",
+          "line": 23,
+          "column": 5
+        },
+        {
+          "title": "blank tasks are ignored",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5637,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:41:49",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 49,
+                      "line": 41
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 44 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 49,
+                        "line": 41
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n\n  39 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  40 |\n> 41 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n     |                                                 ^\n  42 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  43 | });\n  44 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:41:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-28T21:44:43.981Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 49,
+                    "line": 41
+                  }
+                },
+                {
+                  "workerIndex": 7,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5639,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:41:49",
+                    "location": {
+                      "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                      "column": 49,
+                      "line": 41
+                    },
+                    "snippet": "\u001b[0m \u001b[90m 39 |\u001b[39m   \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mgetByRole(\u001b[32m\"button\"\u001b[39m\u001b[33m,\u001b[39m { name\u001b[33m:\u001b[39m \u001b[32m\"Add\"\u001b[39m })\u001b[33m.\u001b[39mclick()\u001b[33m;\u001b[39m\n \u001b[90m 40 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 41 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"empty-state\"\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 42 |\u001b[39m   \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mgetByTestId(\u001b[32m\"active-count\"\u001b[39m))\u001b[33m.\u001b[39mtoHaveText(\u001b[32m\"0\"\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 43 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 44 |\u001b[39m\u001b[0m"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                        "column": 49,
+                        "line": 41
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('empty-state')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByTestId('empty-state') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('empty-state')\u001b[22m\n\n\n  39 |   await page.getByRole(\"button\", { name: \"Add\" }).click();\n  40 |\n> 41 |   await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n     |                                                 ^\n  42 |   await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");\n  43 | });\n  44 |\n    at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:41:49"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 1,
+                  "startTime": "2026-09-28T21:44:50.311Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "screenshot",
+                      "contentType": "image/png",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium-retry1/test-failed-1.png"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium-retry1/error-context.md"
+                    },
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-blank-tasks-are-ignored-chromium-retry1/trace.zip"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts",
+                    "column": 49,
+                    "line": 41
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d2d3f88df070d751ab05-0b8c8f09afdaec09e2d9",
+          "file": "tasks.spec.ts",
+          "line": 36,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-28T21:43:10.921Z",
+    "duration": 105305.512,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 4,
+    "flaky": 0
+  }
+}

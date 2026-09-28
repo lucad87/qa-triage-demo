@@ -1,0 +1,20 @@
+{
+  "id": "product-double-submit",
+  "class": "product",
+  "title": "Add submits the task twice",
+  "summary": "app/page.tsx addTask performs the POST twice (two sequential fetches), so a single Add creates two identical tasks. The list shows the title but the active counter reads \"2\", and the \"creating a task...\" test fails at toHaveText(\"1\") on the counter.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "    if (!title.trim()) return;\n    await fetch(\"/api/tasks\", {\n      method: \"POST\",\n      headers: { \"content-type\": \"application/json\" },\n      body: JSON.stringify({ title }),\n    });\n    setTitle(\"\");",
+      "replace": "    if (!title.trim()) return;\n    await fetch(\"/api/tasks\", {\n      method: \"POST\",\n      headers: { \"content-type\": \"application/json\" },\n      body: JSON.stringify({ title }),\n    });\n    await fetch(\"/api/tasks\", {\n      method: \"POST\",\n      headers: { \"content-type\": \"application/json\" },\n      body: JSON.stringify({ title }),\n    });\n    setTitle(\"\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

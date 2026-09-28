@@ -1,0 +1,20 @@
+{
+  "id": "test-done-button-renamed",
+  "class": "test",
+  "title": "Stale locator: spec clicks a \"Completed\" filter while the app renders \"Done\"",
+  "summary": "e2e/tasks.spec.ts now clicks the completion filter with getByRole(\"button\", { name: \"Completed\" }) although app/page.tsx intentionally renders the label \"Done\", so the locator times out and the finishing test fails. Ground truth: the app behavior is intended and the fix belongs to the TEST (restore the stale locator to \"Done\").",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByRole(\"button\", { name: \"Done\" }).click();",
+      "replace": "  await page.getByRole(\"button\", { name: \"Completed\" }).click();"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

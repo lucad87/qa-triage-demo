@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-render-object",
+  "class": "product",
+  "title": "List item renders the task object instead of its title",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 34040,
+  "startedAt": "2026-09-28T21:45:30.424Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

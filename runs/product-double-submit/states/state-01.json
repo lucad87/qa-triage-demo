@@ -1,0 +1,29 @@
+{
+  "test": "creating a task shows it in the list and updates the counter",
+  "spec": "tasks.spec.ts",
+  "testFile": "e2e/tasks.spec.ts",
+  "testSource": "test(\"creating a task shows it in the list and updates the counter\", async ({ page }) => {\n  await page.goto(\"/\");\n  await page.getByLabel(\"New task\").fill(\"Write the triage article\");\n  await page.getByRole(\"button\", { name: \"Add\" }).click();\n\n  await expect(page.getByTestId(\"task-list\")).toContainText(\"Write the triage article\");\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"1\");\n});",
+  "project": "chromium",
+  "status": "unexpected",
+  "retry": "attempt 1 failed (5.5s); retry failed (5.7s)",
+  "error": "Error: expect(locator).toHaveText(expected) failed\n\nLocator:  getByTestId('active-count')\nExpected: \"1\"\nReceived: \"2\"\nTimeout:  5000ms",
+  "diff": "--- app/page.tsx\n-     if (!title.trim()) return;\n-     await fetch(\"/api/tasks\", {\n-       method: \"POST\",\n-       headers: { \"content-type\": \"application/json\" },\n-       body: JSON.stringify({ title }),\n-     });\n-     setTitle(\"\");\n+     if (!title.trim()) return;\n+     await fetch(\"/api/tasks\", {\n+       method: \"POST\",\n+       headers: { \"content-type\": \"application/json\" },\n+       body: JSON.stringify({ title }),\n+     });\n+     await fetch(\"/api/tasks\", {\n+       method: \"POST\",\n+       headers: { \"content-type\": \"application/json\" },\n+       body: JSON.stringify({ title }),\n+     });\n+     setTitle(\"\");",
+  "attachments": [
+    {
+      "name": "screenshot",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/test-failed-1.png"
+    },
+    {
+      "name": "error-context",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/error-context.md"
+    },
+    {
+      "name": "trace",
+      "path": "/home/runner/work/qa-triage-demo/qa-triage-demo/test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip"
+    }
+  ],
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "durationMs": 5711
+}

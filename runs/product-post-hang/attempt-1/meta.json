@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-post-hang",
+  "class": "product",
+  "title": "POST /api/tasks hangs before responding",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 33904,
+  "startedAt": "2026-09-28T21:44:56.405Z",
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

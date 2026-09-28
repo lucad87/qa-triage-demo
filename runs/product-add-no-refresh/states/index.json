@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-09-28T21:52:06.492Z",
+  "source": "runs/product-add-no-refresh/attempt-1/results.json",
+  "count": 2,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "creating a task shows it in the list and updates the counter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-02.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

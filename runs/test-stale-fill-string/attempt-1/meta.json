@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-stale-fill-string",
+  "class": "test",
+  "title": "Stale fixture: spec fills \"Ship demo\" while the checkbox locator expects \"Ship the demo\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 69981,
+  "startedAt": "2026-09-28T21:50:14.174Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

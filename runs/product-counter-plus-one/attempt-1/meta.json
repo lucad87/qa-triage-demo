@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-counter-plus-one",
+  "class": "product",
+  "title": "Active counter is off by one",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 57576,
+  "startedAt": "2026-09-28T21:39:53.304Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

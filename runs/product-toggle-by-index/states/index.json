@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-09-28T21:52:07.208Z",
+  "source": "runs/product-toggle-by-index/attempt-1/results.json",
+  "count": 1,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

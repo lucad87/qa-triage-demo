@@ -1,0 +1,19 @@
+{
+  "generatedAt": "2026-09-28T21:52:07.486Z",
+  "source": "runs/test-removed-reset/attempt-1/results.json",
+  "count": 2,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-02.json",
+      "test": "blank tasks are ignored",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

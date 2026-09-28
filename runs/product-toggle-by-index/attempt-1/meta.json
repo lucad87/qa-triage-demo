@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-toggle-by-index",
+  "class": "product",
+  "title": "Checkbox toggles by array index instead of task id",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 21935,
+  "startedAt": "2026-09-28T21:47:27.413Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

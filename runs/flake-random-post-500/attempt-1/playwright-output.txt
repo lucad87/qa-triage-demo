@@ -1,0 +1,12 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (1.3s)
+  ✓  2 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (446ms)
+  ✓  3 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (514ms)
+  ✓  4 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (521ms)
+
+  4 passed (9.5s)
+

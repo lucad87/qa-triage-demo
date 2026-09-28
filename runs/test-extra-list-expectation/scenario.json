@@ -1,0 +1,20 @@
+{
+  "id": "test-extra-list-expectation",
+  "class": "test",
+  "title": "Spec asserts task-list is visible after a blank submission",
+  "summary": "\"blank tasks are ignored\" now also asserts getByTestId(\"task-list\") is visible, but a blank submission creates no task and app/page.tsx correctly renders the empty state instead of the list, so the added assertion times out. Ground truth: the new expectation in the TEST is wrong.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByRole(\"button\", { name: \"Add\" }).click();\n\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");",
+      "replace": "  await page.getByRole(\"button\", { name: \"Add\" }).click();\n\n  await expect(page.getByTestId(\"empty-state\")).toBeVisible();\n  await expect(page.getByTestId(\"task-list\")).toBeVisible();\n  await expect(page.getByTestId(\"active-count\")).toHaveText(\"0\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "blank tasks are ignored"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

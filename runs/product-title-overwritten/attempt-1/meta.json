@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-title-overwritten",
+  "class": "product",
+  "title": "createTask stores the literal title \"untitled\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 82713,
+  "startedAt": "2026-09-28T21:46:04.584Z",
+  "changedFiles": [
+    "lib/store.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "id": "test-stale-fill-string",
+  "class": "test",
+  "title": "Stale fixture: spec fills \"Ship demo\" while the checkbox locator expects \"Ship the demo\"",
+  "summary": "In \"completing a task updates the counter and the Done filter\", the spec now fills \"Ship demo\" but still looks up the checkbox via the accessible name \"Mark Ship the demo as done\" and asserts \"Ship the demo\" in the list, so the checkbox locator never resolves. Ground truth: the fixture text in the TEST is stale and the app behavior is intended.",
+  "edits": [
+    {
+      "file": "e2e/tasks.spec.ts",
+      "find": "  await page.getByLabel(\"New task\").fill(\"Ship the demo\");",
+      "replace": "  await page.getByLabel(\"New task\").fill(\"Ship demo\");"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ]
+}

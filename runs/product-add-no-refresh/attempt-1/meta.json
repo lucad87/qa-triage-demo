@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-add-no-refresh",
+  "class": "product",
+  "title": "addTask no longer reloads after the POST",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 34011,
+  "startedAt": "2026-09-28T21:39:19.175Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-stale-format",
+  "class": "test",
+  "title": "Spec expects active-count formatted as \"0.0\" while the app renders \"0\"",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 20876,
+  "startedAt": "2026-09-28T21:51:24.272Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

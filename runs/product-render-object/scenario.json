@@ -1,0 +1,20 @@
+{
+  "id": "product-render-object",
+  "class": "product",
+  "title": "List item renders the task object instead of its title",
+  "summary": "app/page.tsx renders the task object ({task as any}) where it used to render {task.title}, so React receives an object child and the title text never reaches the DOM. The cast is only there to keep next build's type check green; the \"creating a task...\" test still fails at toContainText.",
+  "edits": [
+    {
+      "file": "app/page.tsx",
+      "find": "                <span className={task.done ? \"done\" : undefined}>{task.title}</span>",
+      "replace": "                <span className={task.done ? \"done\" : undefined}>{task as any}</span>"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "changedFiles": [
+    "app/page.tsx"
+  ]
+}

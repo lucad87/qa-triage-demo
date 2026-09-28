@@ -1,0 +1,160 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (573ms)
+  ✘  2 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (5.5s)
+  ✘  3 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (retry #1) (5.7s)
+  ✘  4 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (30.1s)
+  ✘  5 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (30.1s)
+  ✓  6 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (604ms)
+
+
+  1) [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('task-list')
+    Expected substring: "Write the triage article"
+    Received string:    "untitled"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('task-list') with timeout 5000ms
+      - waiting for getByTestId('task-list')
+        14 × locator resolved to <ul data-testid="task-list">…</ul>
+           - unexpected value "untitled"
+
+
+      17 |   await page.getByRole("button", { name: "Add" }).click();
+      18 |
+    > 19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+         |                                               ^
+      20 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      21 | });
+      22 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByTestId('task-list')
+    Expected substring: "Write the triage article"
+    Received string:    "untitled"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByTestId('task-list') with timeout 5000ms
+      - waiting for getByTestId('task-list')
+        14 × locator resolved to <ul data-testid="task-list">…</ul>
+           - unexpected value "untitled"
+
+
+      17 |   await page.getByRole("button", { name: "Add" }).click();
+      18 |
+    > 19 |   await expect(page.getByTestId("task-list")).toContainText("Write the triage article");
+         |                                               ^
+      20 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      21 | });
+      22 |
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:19:47
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('checkbox', { name: 'Mark Ship the demo as done' })
+
+
+      27 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      28 |
+    > 29 |   await page.getByRole("checkbox", { name: "Mark Ship the demo as done" }).click();
+         |                                                                            ^
+      30 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      31 |
+      32 |   await page.getByRole("button", { name: "Done" }).click();
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:29:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('checkbox', { name: 'Mark Ship the demo as done' })
+
+
+      27 |   await expect(page.getByTestId("active-count")).toHaveText("1");
+      28 |
+    > 29 |   await page.getByRole("checkbox", { name: "Mark Ship the demo as done" }).click();
+         |                                                                            ^
+      30 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+      31 |
+      32 |   await page.getByRole("button", { name: "Done" }).click();
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:29:76
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+    [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+  2 passed (1.4m)
+

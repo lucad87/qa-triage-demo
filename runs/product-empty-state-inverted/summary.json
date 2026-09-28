@@ -1,0 +1,27 @@
+{
+  "id": "product-empty-state-inverted",
+  "class": "product",
+  "title": "Empty-state condition inverted",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 4,
+        "flaky": 0,
+        "passed": 0
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 106174
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

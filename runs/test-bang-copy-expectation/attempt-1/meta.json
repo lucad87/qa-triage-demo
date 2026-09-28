@@ -1,0 +1,23 @@
+{
+  "scenarioId": "test-bang-copy-expectation",
+  "class": "test",
+  "title": "Stale copy: spec asserts \"Write the triage article!\" with a trailing bang",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 21892,
+  "startedAt": "2026-09-28T21:47:49.464Z",
+  "changedFiles": [
+    "e2e/tasks.spec.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

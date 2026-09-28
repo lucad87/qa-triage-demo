@@ -1,0 +1,31 @@
+{
+  "generatedAt": "2026-09-28T21:52:06.303Z",
+  "source": "runs/env-https-baseurl/attempt-1/results.json",
+  "count": 4,
+  "states": [
+    {
+      "file": "state-01.json",
+      "test": "empty board shows the empty state",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-02.json",
+      "test": "creating a task shows it in the list and updates the counter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-03.json",
+      "test": "completing a task updates the counter and the Done filter",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    },
+    {
+      "file": "state-04.json",
+      "test": "blank tasks are ignored",
+      "spec": "tasks.spec.ts",
+      "status": "unexpected"
+    }
+  ]
+}

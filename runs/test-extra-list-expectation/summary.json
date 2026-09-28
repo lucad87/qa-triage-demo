@@ -1,0 +1,24 @@
+{
+  "id": "test-extra-list-expectation",
+  "class": "test",
+  "title": "Spec asserts task-list is visible after a blank submission",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 20167
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

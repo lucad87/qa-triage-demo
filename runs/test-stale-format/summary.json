@@ -1,0 +1,24 @@
+{
+  "id": "test-stale-format",
+  "class": "test",
+  "title": "Spec expects active-count formatted as \"0.0\" while the app renders \"0\"",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "empty board shows the empty state"
+      ],
+      "flaky": [],
+      "durationMs": 20876
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

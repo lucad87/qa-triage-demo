@@ -1,0 +1,23 @@
+{
+  "scenarioId": "product-double-submit",
+  "class": "product",
+  "title": "Add submits the task twice",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 33992,
+  "startedAt": "2026-09-28T21:42:36.004Z",
+  "changedFiles": [
+    "app/page.tsx"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 2,
+    "flaky": 0,
+    "passed": 2
+  }
+}
