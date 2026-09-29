@@ -1,0 +1,15 @@
+{
+  "candidate": "runs/test-renamed-label-drift/actions/state-03-spec.candidate.ts",
+  "spec": "e2e/tasks.spec.ts",
+  "grep": "blank tasks are ignored",
+  "scenario": "test-renamed-label-drift",
+  "exitCode": 0,
+  "passed": true,
+  "durationMs": 6591,
+  "stdoutTail": "\nRunning 1 test using 1 worker\n\n  ok 1 [chromium] › e2e\\tasks.spec.ts:36:5 › blank tasks are ignored (277ms)\n\n  1 passed (5.7s)\n",
+  "stderrTail": "",
+  "restoredSpec": true,
+  "revertedScenario": true,
+  "treeClean": true,
+  "generatedAt": "2026-09-29T16:41:49.104Z"
+}

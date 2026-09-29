@@ -1,0 +1,15 @@
+{
+  "candidate": "runs/test-renamed-label-drift/actions/state-02-spec.candidate.ts",
+  "spec": "e2e/tasks.spec.ts",
+  "grep": "completing a task updates the counter and the Done filter",
+  "scenario": "test-renamed-label-drift",
+  "exitCode": 0,
+  "passed": true,
+  "durationMs": 36595,
+  "stdoutTail": "\nRunning 1 test using 1 worker\n\n  ok 1 [chromium] › e2e\\tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (405ms)\n\n  1 passed (27.1s)\n",
+  "stderrTail": "",
+  "restoredSpec": true,
+  "revertedScenario": true,
+  "treeClean": true,
+  "generatedAt": "2026-09-29T16:41:42.240Z"
+}
