@@ -215,6 +215,36 @@
       "id": "test-wrong-count-expectation",
       "class": "test",
       "file": "scenarios/test-wrong-count-expectation.json"
+    },
+    {
+      "id": "env-dns-unresolvable",
+      "class": "environment",
+      "file": "scenarios/env-dns-unresolvable.json"
+    },
+    {
+      "id": "env-nav-timeout",
+      "class": "environment",
+      "file": "scenarios/env-nav-timeout.json"
+    },
+    {
+      "id": "env-storage-missing",
+      "class": "environment",
+      "file": "scenarios/env-storage-missing.json"
+    },
+    {
+      "id": "flake-random-create-corrupt",
+      "class": "flake",
+      "file": "scenarios/flake-random-create-corrupt.json"
+    },
+    {
+      "id": "flake-random-get-empty",
+      "class": "flake",
+      "file": "scenarios/flake-random-get-empty.json"
+    },
+    {
+      "id": "flake-random-patch-500",
+      "class": "flake",
+      "file": "scenarios/flake-random-patch-500.json"
     }
   ]
 }

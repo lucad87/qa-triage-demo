@@ -1,0 +1,17 @@
+{
+  "id": "env-nav-timeout",
+  "class": "environment",
+  "title": "navigationTimeout is misconfigured to 1 ms",
+  "summary": "playwright.config.ts sets use.navigationTimeout to 1 ms while the app and server are perfectly healthy, so every page.goto times out instantly and all tests fail before the app is ever judged. This is an environment/config misconfiguration, not an app bug.",
+  "edits": [
+    {
+      "file": "playwright.config.ts",
+      "find": "    trace: \"retain-on-failure\",",
+      "replace": "    navigationTimeout: 1, trace: \"retain-on-failure\","
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

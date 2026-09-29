@@ -123,13 +123,42 @@ jobs:
       - name: Distill newly collected runs
         run: |
           set -e
+          # Flake scenarios can be green on attempt 1; pick the first attempt that
+          # actually has a failing/flaky spec, and skip the run if none does.
           for d in runs/*/; do
             id=$(basename "$d")
             if [ "$id" = "baseline" ]; then continue; fi
-            if [ -f "${d}scenario.json" ] && [ -f "${d}attempt-1/results.json" ] && [ ! -d "${d}states" ]; then
-              echo "=== distill ${id}"
+            if [ -f "${d}scenario.json" ] && [ ! -d "${d}states" ]; then
+              pick=""
+              for a in "${d}"attempt-*/; do
+                [ -f "${a}results.json" ] || continue
+                if node -e '
+                  const fs = require("fs");
+                  const r = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+                  const bad = (s) => s === "failed" || s === "timedOut" || s === "interrupted";
+                  let found = false;
+                  const walk = (su) => {
+                    for (const c of su.suites ?? []) walk(c);
+                    for (const sp of su.specs ?? []) for (const t of sp.tests ?? []) {
+                      const st = t.status;
+                      const rs = (t.results ?? []).map((x) => x.status);
+                      if (st === "unexpected" || st === "flaky" || rs.some(bad)) found = true;
+                    }
+                  };
+                  for (const su of r.suites ?? []) walk(su);
+                  process.exit(found ? 0 : 1);
+                ' "${a}results.json"; then
+                  pick="${a}results.json"
+                  break
+                fi
+              done
+              if [ -z "$pick" ]; then
+                echo "=== skip ${id}: no failing or flaky attempt found"
+                continue
+              fi
+              echo "=== distill ${id} (source: ${pick})"
               changed=$(node -p "require('./runs/${id}/scenario.json').changedFiles.join(',')")
-              node scripts/triage/distill.mjs --results "${d}attempt-1/results.json" --changed "$changed" --scenario "${d}scenario.json" --out "${d}states"
+              node scripts/triage/distill.mjs --results "${pick}" --changed "$changed" --scenario "${d}scenario.json" --out "${d}states"
             fi
           done
       - name: Regenerate fine-tune dataset

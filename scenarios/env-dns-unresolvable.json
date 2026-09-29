@@ -1,0 +1,17 @@
+{
+  "id": "env-dns-unresolvable",
+  "class": "environment",
+  "title": "baseURL hostname does not resolve (DNS failure)",
+  "summary": "playwright.config.ts points baseURL at http://taskdeck.invalid:3100, a host that never resolves (RFC 2606 reserved TLD), so every request fails with a DNS error before the app is ever reached. This is an environment/config misconfiguration, not an app bug.",
+  "edits": [
+    {
+      "file": "playwright.config.ts",
+      "find": "    baseURL: `http://127.0.0.1:${PORT}`,",
+      "replace": "    baseURL: \"http://taskdeck.invalid:3100\","
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

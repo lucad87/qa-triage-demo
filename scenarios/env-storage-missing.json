@@ -1,0 +1,17 @@
+{
+  "id": "env-storage-missing",
+  "class": "environment",
+  "title": "storageState points at a file that does not exist",
+  "summary": "playwright.config.ts sets use.storageState to a path that does not exist, so browser and request contexts fail to initialize with an ENOENT error before any test body runs. This is an environment/config misconfiguration, not an app bug.",
+  "edits": [
+    {
+      "file": "playwright.config.ts",
+      "find": "    trace: \"retain-on-failure\",",
+      "replace": "    storageState: \"e2e/state.json\", trace: \"retain-on-failure\","
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  }
+}

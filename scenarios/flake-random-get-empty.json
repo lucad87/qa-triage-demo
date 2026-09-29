@@ -1,0 +1,18 @@
+{
+  "id": "flake-random-get-empty",
+  "class": "flake",
+  "title": "GET /api/tasks randomly returns an empty list",
+  "summary": "The GET handler returns [] about half the time (Math.random() < 0.5) instead of the current tasks, so after adding a task the refetch sometimes shows an empty board and the list assertion fails intermittently. The spec and the rest of the app logic are correct; the failure is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "export async function GET() {\n  return NextResponse.json(listTasks());\n}",
+      "replace": "export async function GET() {\n  if (Math.random() < 0.5) return NextResponse.json([]);\n  return NextResponse.json(listTasks());\n}"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "repeat": true
+}
