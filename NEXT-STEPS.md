@@ -2,6 +2,17 @@
 
 Aggiornato: 2026-09-29 (esperimenti opzionali: corpus round 3 + gate fitting — COMPLETATI).
 
+## Cosa resta, in parole semplici
+
+Il progetto (pipeline + modello + eval) è **finito e funzionante**: coverage 0.84, precisione 100%, tutto verde su GitHub. Restano solo:
+
+1. **Parte editoriale per il blog** (serve una decisione sui tempi): figure (FIG 1-5), rendere pubblico il repo, inserire il link nell'articolo, pubblicare. L'agente può preparare tutto su richiesta.
+2. **Sicurezza**: rigenerare il token Kaggle quando si chiude il progetto (~2 minuti).
+3. **Migliorie opzionali** (nulla di rotto — il sistema già funziona):
+   - classe `test` a 11/24 auto: servirebbe più corpus test o tuning → un altro giro di lavoro;
+   - INT8 parcheggiato: va validato su input reali prima di poterlo usare;
+   - 2 stati flake finiscono in escalation (gestiti dall'LLM, costo trascurabile).
+
 ## Stato attuale (il loop è chiuso e gira)
 
 - Corpus: **49 scenari / 92 stati** (product 39, test 24, environment 22, flake 7).
