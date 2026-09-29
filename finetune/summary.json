@@ -1,23 +1,29 @@
 {
-  "generatedAt": "2026-09-28T21:53:37.695Z",
-  "runsDir": "D:\\openwork\\qa-triage-demo\\runs",
-  "outDir": "D:\\openwork\\qa-triage-demo\\finetune",
+  "generatedAt": "2026-09-29T12:06:47.864Z",
+  "runsDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/runs",
+  "outDir": "/home/runner/work/qa-triage-demo/qa-triage-demo/finetune",
   "totals": {
-    "all": 77,
-    "train": 67,
+    "all": 92,
+    "train": 82,
     "val": 10
   },
   "byClass": {
-    "environment": 10,
-    "flake": 4,
+    "environment": 22,
+    "flake": 7,
     "product": 39,
     "test": 24
   },
   "byScenario": {
+    "env-dns-unresolvable": 4,
     "env-https-baseurl": 4,
+    "env-nav-timeout": 4,
     "env-parallel-workers": 2,
+    "env-storage-missing": 4,
     "env-wrong-baseurl": 4,
     "flake-evidence": 1,
+    "flake-random-create-corrupt": 1,
+    "flake-random-get-empty": 1,
+    "flake-random-patch-500": 1,
     "flake-random-post-500": 1,
     "flake-random-refresh": 1,
     "flake-toggle-random-skip": 1,

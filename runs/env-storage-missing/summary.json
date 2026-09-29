@@ -1,0 +1,27 @@
+{
+  "id": "env-storage-missing",
+  "class": "environment",
+  "title": "storageState points at a file that does not exist",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 4,
+        "flaky": 0,
+        "passed": 0
+      },
+      "failed": [
+        "empty board shows the empty state",
+        "creating a task shows it in the list and updates the counter",
+        "completing a task updates the counter and the Done filter",
+        "blank tasks are ignored"
+      ],
+      "flaky": [],
+      "durationMs": 9043
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

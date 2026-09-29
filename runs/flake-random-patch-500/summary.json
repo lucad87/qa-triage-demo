@@ -1,0 +1,67 @@
+{
+  "id": "flake-random-patch-500",
+  "class": "flake",
+  "title": "PATCH /api/tasks/[id] randomly fails with a 500, so a toggle click is sometimes a no-op",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 0,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 14252
+    },
+    {
+      "attempt": 2,
+      "exitCode": 1,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 19958
+    },
+    {
+      "attempt": 3,
+      "exitCode": 0,
+      "expectedFailureMet": true,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 14238
+    },
+    {
+      "attempt": 4,
+      "exitCode": 0,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 0,
+        "flaky": 0,
+        "passed": 4
+      },
+      "failed": [],
+      "flaky": [],
+      "durationMs": 7905
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

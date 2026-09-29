@@ -1,0 +1,23 @@
+{
+  "scenarioId": "env-nav-timeout",
+  "class": "environment",
+  "title": "navigationTimeout is misconfigured to 1 ms",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 13834,
+  "startedAt": "2026-09-29T12:02:40.483Z",
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

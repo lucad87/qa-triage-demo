@@ -1,0 +1,23 @@
+{
+  "scenarioId": "env-dns-unresolvable",
+  "class": "environment",
+  "title": "baseURL hostname does not resolve (DNS failure)",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 9375,
+  "startedAt": "2026-09-29T12:02:31.007Z",
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

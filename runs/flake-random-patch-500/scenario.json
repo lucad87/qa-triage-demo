@@ -1,0 +1,21 @@
+{
+  "id": "flake-random-patch-500",
+  "class": "flake",
+  "title": "PATCH /api/tasks/[id] randomly fails with a 500, so a toggle click is sometimes a no-op",
+  "summary": "The PATCH handler returns 500 about half the time (Math.random() < 0.5) before toggling the task, so a checkbox click silently fails intermittently and the active counter never drops. The spec and the rest of the app logic are correct; the failure is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/api/tasks/[id]/route.ts",
+      "find": "export async function PATCH(_request: Request, { params }: { params: Promise<{ id: string }> }) {\n  const { id } = await params;",
+      "replace": "export async function PATCH(_request: Request, { params }: { params: Promise<{ id: string }> }) {\n  if (Math.random() < 0.5) return NextResponse.json({ error: \"random failure\" }, { status: 500 });\n  const { id } = await params;"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "repeat": true,
+  "changedFiles": [
+    "app/api/tasks/[id]/route.ts"
+  ]
+}

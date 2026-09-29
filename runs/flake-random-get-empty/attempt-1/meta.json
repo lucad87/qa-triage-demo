@@ -1,0 +1,23 @@
+{
+  "scenarioId": "flake-random-get-empty",
+  "class": "flake",
+  "title": "GET /api/tasks randomly returns an empty list",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 0,
+  "durationMs": 14091,
+  "startedAt": "2026-09-29T12:03:50.610Z",
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": false,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

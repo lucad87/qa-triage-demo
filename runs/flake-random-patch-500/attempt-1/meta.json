@@ -1,0 +1,23 @@
+{
+  "scenarioId": "flake-random-patch-500",
+  "class": "flake",
+  "title": "PATCH /api/tasks/[id] randomly fails with a 500, so a toggle click is sometimes a no-op",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 0,
+  "durationMs": 14252,
+  "startedAt": "2026-09-29T12:05:50.729Z",
+  "changedFiles": [
+    "app/api/tasks/[id]/route.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "completing a task updates the counter and the Done filter"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 1,
+    "flaky": 0,
+    "passed": 3
+  }
+}

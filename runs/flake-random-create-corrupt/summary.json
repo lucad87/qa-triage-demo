@@ -1,0 +1,37 @@
+{
+  "id": "flake-random-create-corrupt",
+  "class": "flake",
+  "title": "POST /api/tasks randomly truncates the stored title",
+  "attempts": [
+    {
+      "attempt": 1,
+      "exitCode": 0,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 0,
+        "flaky": 0,
+        "passed": 4
+      },
+      "failed": [],
+      "flaky": [],
+      "durationMs": 8083
+    },
+    {
+      "attempt": 2,
+      "exitCode": 0,
+      "expectedFailureMet": false,
+      "totals": {
+        "failed": 1,
+        "flaky": 0,
+        "passed": 3
+      },
+      "failed": [
+        "completing a task updates the counter and the Done filter"
+      ],
+      "flaky": [],
+      "durationMs": 38848
+    }
+  ],
+  "revertedClean": true,
+  "error": null
+}

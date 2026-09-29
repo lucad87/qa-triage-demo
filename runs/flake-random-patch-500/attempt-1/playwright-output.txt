@@ -1,0 +1,55 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✓  1 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (495ms)
+  ✓  2 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (399ms)
+  ✘  3 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (5.5s)
+  ✓  4 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (691ms)
+  ✓  5 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (357ms)
+
+
+  1) [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('active-count')
+    Expected: "0"
+    Received: "1"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" getByTestId('active-count') with timeout 5000ms
+      - waiting for getByTestId('active-count')
+        14 × locator resolved to <span data-testid="active-count">1</span>
+           - unexpected value "1"
+
+
+      28 |
+      29 |   await page.getByRole("checkbox", { name: "Mark Ship the demo as done" }).click();
+    > 30 |   await expect(page.getByTestId("active-count")).toHaveText("0");
+         |                                                  ^
+      31 |
+      32 |   await page.getByRole("button", { name: "Done" }).click();
+      33 |   await expect(page.getByTestId("task-list")).toContainText("Ship the demo");
+        at /home/runner/work/qa-triage-demo/qa-triage-demo/e2e/tasks.spec.ts:30:50
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 flaky
+    [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+  3 passed (13.6s)
+

@@ -1,0 +1,21 @@
+{
+  "id": "flake-random-create-corrupt",
+  "class": "flake",
+  "title": "POST /api/tasks randomly truncates the stored title",
+  "summary": "The POST handler truncates the title to its first 3 characters about half the time (Math.random() < 0.5), so the created task intermittently appears under a mangled title and the list assertion fails. The spec and the rest of the app logic are correct; the failure is nondeterministic with no relevant code change.",
+  "edits": [
+    {
+      "file": "app/api/tasks/route.ts",
+      "find": "  const title = typeof body?.title === \"string\" ? body.title.trim() : \"\";",
+      "replace": "  let title = typeof body?.title === \"string\" ? body.title.trim() : \"\";\n  if (title && Math.random() < 0.5) title = title.slice(0, 3);"
+    }
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "repeat": true,
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ]
+}

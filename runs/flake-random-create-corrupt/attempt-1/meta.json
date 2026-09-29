@@ -1,0 +1,23 @@
+{
+  "scenarioId": "flake-random-create-corrupt",
+  "class": "flake",
+  "title": "POST /api/tasks randomly truncates the stored title",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 0,
+  "durationMs": 8083,
+  "startedAt": "2026-09-29T12:03:03.572Z",
+  "changedFiles": [
+    "app/api/tasks/route.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "creating a task shows it in the list and updates the counter"
+  },
+  "expectedFailureMet": false,
+  "totals": {
+    "failed": 0,
+    "flaky": 0,
+    "passed": 4
+  }
+}

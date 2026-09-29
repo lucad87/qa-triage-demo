@@ -1,0 +1,23 @@
+{
+  "scenarioId": "env-storage-missing",
+  "class": "environment",
+  "title": "storageState points at a file that does not exist",
+  "attempt": 1,
+  "retries": 1,
+  "exitCode": 1,
+  "durationMs": 9043,
+  "startedAt": "2026-09-29T12:02:54.422Z",
+  "changedFiles": [
+    "playwright.config.ts"
+  ],
+  "expectedFailure": {
+    "spec": "e2e/tasks.spec.ts",
+    "testTitle": "empty board shows the empty state"
+  },
+  "expectedFailureMet": true,
+  "totals": {
+    "failed": 4,
+    "flaky": 0,
+    "passed": 0
+  }
+}

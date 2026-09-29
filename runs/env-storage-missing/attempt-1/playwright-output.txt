@@ -1,0 +1,133 @@
+$ npx playwright test --retries=1
+
+
+Running 4 tests using 1 worker
+
+  ✘  1 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (3ms)
+  ✘  2 [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state (retry #1) (16ms)
+  ✘  3 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (15ms)
+  ✘  4 [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter (retry #1) (15ms)
+  ✘  5 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (18ms)
+  ✘  6 [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter (retry #1) (18ms)
+  ✘  7 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (15ms)
+  ✘  8 [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored (retry #1) (5ms)
+
+
+  1) [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state ────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-empty-board-shows-the-empty-state-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-empty-board-shows-the-empty-state-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-empty-board-shows-the-empty-state-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-empty-board-shows-the-empty-state-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-creating-a-task-show-5d5ea-ist-and-updates-the-counter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-completing-a-task-up-5a015-counter-and-the-Done-filter-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored ─────────────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-blank-tasks-are-ignored-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-blank-tasks-are-ignored-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Error: ENOENT: no such file or directory, open 'e2e/state.json'
+
+    Error Context: test-results/tasks-blank-tasks-are-ignored-chromium-retry1/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/tasks-blank-tasks-are-ignored-chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/tasks-blank-tasks-are-ignored-chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [chromium] › e2e/tasks.spec.ts:7:5 › empty board shows the empty state ─────────────────────────
+    [chromium] › e2e/tasks.spec.ts:14:5 › creating a task shows it in the list and updates the counter 
+    [chromium] › e2e/tasks.spec.ts:23:5 › completing a task updates the counter and the Done filter 
+    [chromium] › e2e/tasks.spec.ts:36:5 › blank tasks are ignored ──────────────────────────────────
+
