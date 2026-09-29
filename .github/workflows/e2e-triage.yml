@@ -168,14 +168,20 @@ jobs:
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           kaggle kernels output lucad87/laya-triage-train -p model
-          ls -lh model/onnx_fp32
+          if [ -f model/onnx_int8/laya.onnx ]; then
+            MD=model/onnx_int8
+          else
+            MD=model/onnx_fp32
+          fi
+          echo "MODEL_DIR=$MD" >> "$GITHUB_ENV"
+          ls -lh "$MD"
       - name: Decide with the fine-tuned model (all corpus runs)
         run: |
           set -e
           for d in runs/*/; do
             if [ -d "${d}states" ] && [ -f "${d}scenario.json" ]; then
               echo "=== ${d}"
-              node scripts/triage/decide.mjs --states "${d}states" --out "${d}decisions-tuned.json" --model-dir model/onnx_fp32
+              node scripts/triage/decide.mjs --states "${d}states" --out "${d}decisions-tuned.json" --model-dir "$MODEL_DIR"
               cp "${d}decisions-tuned.json" "${d}decisions.json"
             fi
           done
