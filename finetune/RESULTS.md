@@ -1,45 +1,51 @@
 # Fine-tune results — qa-triage-demo
 
-## Run #2 — the loop closes (2026-09-29)
+## Round 3 (current model): 49 scenarios, 92 states — coverage 0.84, precision 100%
 
-- **Kernel**: [`lucad87/laya-triage-train`](https://www.kaggle.com/code/lucad87/laya-triage-train) v6 (private), adapted official notebook, 2×T4, 8 epochs.
-- **Data**: 67 train / 10 val cases — 43 fault scenarios, 77 labeled states; the val split holds out 4 whole scenario groups.
-- **In-kernel val (typed-decisions format)**: accuracy **0.775** (three training runs so far: 0.55 → 0.60 → 0.775 on the same 10-case split — treat ±0.1 as noise at this size), ECE 0.249, p50 282 ms/case. Report: `finetune/benchmark-report-3.json`.
-- **Routing view (CI job `trained-eval`, fp32 bundle, all 77 corpus states)** — the number that matters:
+- **Kernel**: [`lucad87/laya-triage-train`](https://www.kaggle.com/code/lucad87/laya-triage-train) v7 (private), adapted official notebook, 2×T4, 8 epochs (~12 min).
+- **Data**: 92 labeled states from 49 fault scenarios (82 train / 10 val; split by scenario group). Corpus rounds: 9 → 24 → 43 → 49 scenarios.
+- **In-kernel val (typed-decisions format)**: accuracy **0.95** (val n=10 — noisy; history: 0.55 → 0.60 → 0.775 → 0.95), soft-acc 0.7445, ECE 0.163, p50 286 ms/case. Report: `finetune/benchmark-report-4.json`.
+- **Routing view (CI job `trained-eval`, fp32 bundle, all 92 states)**:
+
+| stage | gates (conf / noul) | auto | correct | wrong | abstain | coverage |
+| --- | --- | --- | --- | --- | --- | --- |
+| eval run #3 (shipped gates) | 0.30 / 0.75 | 65 | 65 | 0 | 27 | 0.71 |
+| **eval run #4 (fitted gates)** | **0.30 / 0.65** | **77** | **77** | **0** | **15** | **0.84** |
+
+By class (run #4):
 
 | class | expected | total | auto | correct | wrong | abstain | coverage |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| product | product-report | 39 | **31** | **31** | 0 | 8 | 0.79 |
-| test | test-fix | 24 | 0 | 0 | 0 | 24 | 0.00 |
-| flake | flake-tracker | 4 | 0 | 0 | 0 | 4 | 0.00 |
-| environment | env-alert | 10 | 0 | 0 | 0 | 10 | 0.00 |
-| **all** | | **77** | **31** | **31** | **0** | **46** | **0.40** |
+| product | product-report | 39 | 39 | 39 | 0 | 0 | **1.00** |
+| environment | env-alert | 22 | 22 | 22 | 0 | 0 | **1.00** |
+| test | test-fix | 24 | 11 | 11 | 0 | 13 | 0.46 |
+| flake | flake-tracker | 7 | 5 | 5 | 0 | 2 | 0.71 |
+| **all** | | **92** | **77** | **77 (100% precision)** | **0** | **15** | **0.84** |
 
-- **Precision on auto-decisions: 31/31 = 100%.** Origin argmax accuracy **66/77 (86%)** (run #1: 19/42 = 45%).
-- Origin detail: **product 39/39** · test 22/24 · environment 5/10 (at conf 0.04–0.09) · flake 0/4.
-- The two test misses (`test-renamed-label-drift`, origin predicted product at conf 0.51–0.56) were **stopped by the `product_side ≥ 0.75` gate** — the gate visibly does work.
-- What changed vs run #1: the model went from "product bias with ~0.05 confidence everywhere" to **confident product detections** (conf 0.42–0.85, product_side 0.78–0.97) that auto-route with zero wrong calls, plus a correct `origin=test` signal (conf 0.30–0.49; the `test_side` noul head is still weak, so test states escalate at the second gate).
+What changed in round 3 — two levers, one variable each:
+1. **Corpus growth, focused on the weak classes** (6 new scenarios: 3 flake, 3 environment) plus a CI fix so flake scenarios are distilled from the *first failing attempt* (they can be green on attempt 1). Effect at run #3: environment 0/10 → 22/22, flake 0/4 → 5/7, test 0/24 → 0/24 but origin correct on 23/24 with test_side rising to 0.53–0.75.
+2. **Threshold fitting** (see below): 65 → 77 automatic decisions, all correct.
 
-### INT8: produced, runs, and quietly fails — parked
+### Threshold fitting
 
-The v6 kernel also exported a **dynamic-INT8** bundle (425 MB) with the fixed recipe: merge external data → `quant_pre_process(skip_symbolic_shape=True)` → strip `graph.value_info` (fixes the ORT `1028 vs 256` inference conflict) → `quantize_dynamic`. It **loads and runs** — but on real states it **flatlines**: origin probabilities collapse to ≈0.25 uniform (conf ≈ 0.0002) where fp32 gives 0.30–0.85. The in-kernel check missed it: it compared the two models on a random-token input on which fp32 itself was saturated (`[[1.0, 0.0], …]`, diff 0.0) — a false pass. An eval run on the INT8 bundle produced a fake "0/77 auto" before this was caught. `trained-eval` is **pinned to the fp32 bundle** (commit `a26a8c5`) until an INT8 validated on real inputs exists. Lesson: compare quantized models on real inputs, not on saturated dummies.
+The routing gates (`--conf 0.30`, `--min-noul 0.75`) were first-cut placeholders. Re-routing the run-#3 answers over a gate grid:
 
-## Run #1 — seed scale (2026-09-28)
+| conf \ noul | 0.60 | 0.65 | 0.70 | 0.75 | 0.80 |
+| --- | --- | --- | --- | --- | --- |
+| 0.25 | 82/80/**2** | 78/77/**1** | 68/68/0 | 65/65/0 | 63/63/0 |
+| 0.30 | 81/80/**1** | **77/77/0** | 68/68/0 | 65/65/0 | 63/63/0 |
+| 0.35 | 81/80/**1** | 77/77/0 | 68/68/0 | 65/65/0 | 63/63/0 |
 
-- **Data**: `laya-triage.train.jsonl` (32 cases → 128 sequences) / val (10 cases).
-- **Recipe**: official RLCD DDP flow, 4 epochs (~1 min of GPU), calibration temperatures `[1.0, 1.0, 1.0]`.
-- **Export**: receptron ONNX bundle, parity `max |dlogits| = 3.8e-06`. INT8 failed (shape inference) → fp32 only.
-- **Kaggle val**: accuracy **0.55** · soft-acc 0.547 · ECE 0.138 · p50 255 ms/case.
-- **Routing view (CI, 42 states)**: all-escalate, origin 19/42 (45%) (product 17/17, test 2/16, env 0/6, flake 0/3), mean conf ≈ 0.05.
+(cells: auto/correct/**wrong** over the 92 states.) **conf 0.30 / noul 0.65 is the maximal zero-wrong point** → adopted as the new defaults in `scripts/triage/decide.mjs`; eval run #4 re-ran the whole pipeline end-to-end and confirmed 77/77/0. Caveat: the point is fitted (resubstitution) on this corpus — re-fit whenever the corpus or the model changes. At noul 0.60 the first wrong decisions appear (a test-renamed-label-drift state crossing product_side), so 0.65 keeps margin.
 
-## Reading
+## History — rounds 1-2
 
-Run #1 showed the loop works end-to-end but the model at seed scale only learns a "product" bias without usable confidence. Run #2 (4× the data, 8 epochs, same pipeline) flips that: **product failures now auto-route as product reports with 100% precision**, the test origin signal is largely correct, and everything the model is unsure about still escalates. The gate + escalation path stayed constant across both runs — the model was the only variable, which is exactly the property the design wanted.
-
-Next iteration ideas: grow the flake/environment classes (3–4 examples each today), investigate why the `test_side` head stays under its 0.75 gate despite correct origin, and re-attempt INT8 with real-input validation baked into the kernel.
+- **Run #1** (2026-09-28): 32 train cases, 4 epochs, val 0.55. Routing over 42 states: all-escalate, origin 19/42 (45%), mean conf ≈ 0.05. The loop worked end-to-end; the model learned only a "product" bias.
+- **Run #2** (v6, 77 states): val 0.775. Routing over 77 states with old gates: 31/77 auto (coverage 0.40), product 31/39, everything else abstained. INT8 export produced a bundle that loads and runs but **flatlines** on real inputs (uniform probs, conf ≈ 0.0002) — CI pinned to fp32.
+- Reports: `runs/eval-report-tuned.md|json` (#1) · `-2` (#2) · `-3` (#3, pre-fit gates) · `-4` (#4, fitted gates).
 
 ## Artifacts
 
-- `finetune/benchmark-report.json` (run #1 val) · `benchmark-report-2.json` (v4 retrain val 0.60) · `benchmark-report-3.json` (v6 val 0.775)
-- `runs/eval-report-tuned.md|json` (run #1 routing) · `runs/eval-report-tuned-2.md|json` (run #2 routing, fp32)
-- Model bundles: Kaggle kernel output — `onnx_fp32/` (~1.69 GB, in use) and `onnx_int8/` (~425 MB, parked: see above).
+- Routing reports: `runs/eval-report-tuned{,-2,-3,-4}.md|json`
+- Val reports: `finetune/benchmark-report.json` (0.55) · `-2` (0.60) · `-3` (0.775) · `-4` (0.95)
+- Model bundles: Kaggle kernel output — `onnx_fp32/` (in use) and `onnx_int8/` (parked; see run-#2 note)

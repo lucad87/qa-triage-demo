@@ -1,45 +1,33 @@
 # NEXT-STEPS — qa-triage-demo
 
-Aggiornato: 2026-09-29 sera (eval run #2 **fp32** COMPLETATA — numeri veri in `finetune/RESULTS.md`).
+Aggiornato: 2026-09-29 (esperimenti opzionali: corpus round 3 + gate fitting — COMPLETATI).
 
-## Stato attuale
+## Stato attuale (il loop è chiuso e gira)
 
-- Corpus: **43 scenari / 77 stati** etichettati; dataset fine-tune 77 righe (67 train / 10 val).
-- Kernel v6 (`lucad87/laya-triage-train`): training 8 epoche, val **0.775** (n=10, rumorosa), export **fp32 + int8** (entrambi nell'output).
-- **Eval CI run #2 (`36549725712`, fp32, 77 stati): 31/77 auto, 31/31 corrette — precisione 100%, coverage 0.40**; origin 66/77 (86%): product 39/39, test 22/24, env 5/10, flake 0/4; 46 astensioni. Report: `runs/eval-report-tuned-2.md|json`.
-- Workflow `trained-eval` **pinnato a fp32** (commit `a26a8c5`) — vedi INT8 sotto.
-- Ultimi commit su main: `a26a8c5` (fix fp32) → poi commit dei risultati run #2.
-
-## INT8 — cronaca (parked, non rimosso)
-
-Successi parziali e tranello finale:
-1. Ricetta che **produce un int8 che si carica e gira**: merge external data → `quant_pre_process(skip_symbolic_shape=True)` → **strip `graph.value_info`** (fix del conflitto ORT "1028 vs 256") → `quantize_dynamic(QInt8)` → 425 MB.
-2. **Ma su input reali le uscite sono appiattite**: probabilità ≈0.25 uniformi, conf ≈0.0002 (fp32 sugli stessi stati: conf 0.30–0.85, origin corretto). La quantizzazione dinamica distrugge il modello per questo dominio.
-3. Il check in-kernel ha fatto **falso positivo**: confronto su input random saturo (`[[1.0, 0.0], …]`, diff 0.0) — non diagnostico.
-4. Conseguenza: una eval è stata girata sull'int8 rotto (risultato fake "0/77 auto") → il workflow ora usa **fp32** e l'int8 resta solo come artefatto documentato.
-
-Futuro (se si vuole riprovare): validazione su **input reali** baked nel kernel (2–3 stati del corpus, confronto distribuzioni vs fp32), poi opzioni tipo escludere op problematiche / per-channel / versioni ORT diverse.
+- Corpus: **49 scenari / 92 stati** (product 39, test 24, environment 22, flake 7).
+- Modello: kernel **v7** (`lucad87/laya-triage-train`), 8 epoche su 82 train / 10 val; val in-kernel **0.95** (n=10, rumorosa).
+- **Eval CI run #4 (fp32, gate fittate 0.30/0.65): 77/92 auto, 77/77 corrette (precision 100%), coverage 0.84** — per classe: product 39/39, environment 22/22, test 11/24, flake 5/7. Report: `runs/eval-report-tuned-4.md|json`.
+- Gate **fittate sul corpus** (tabella di sensibilità in `finetune/RESULTS.md`): minNoul 0.75→**0.65** nei default di `decide.mjs` (commit `75e791a`); a 0.60 compaiono i primi errori → 0.65 è il punto massimale a zero errori.
+- Cronologia eval: #1 (42 stati) 0 auto · #2 (77) 31 auto/0.40 · #3 (92, gate vecchie) 65/0.71 · #4 (92, gate fittate) 77/0.84.
+- CI: trained-eval pinnato a **fp32**; la distill dei flake sceglie il **primo attempt con failure** (commit `8639784`); nuovi scenari validati in locale prima della collect.
 
 ## Prossimo lavoro
 
-1. **Articolo** (`D:\openwork\posts\playwright-failure-triage-draft.md`): integrare i risultati run #2 (tabella routing + breakdown origin), la cronaca INT8 ("gira ma flatlina; il check saturo diceva OK"), e sostituire la sezione "What's next: the data loop" con i risultati reali del loop.
-2. Publish prep: rendere pubblico il repo quando l'articolo esce (aggiornare link, figure: pipeline, tabella routing).
-3. Opzionali: espandere corpus (flake 3, env 3 sono sotto-rappresentati — classi deboli), indagare perché `test_side` resta sotto la soglia 0.75 nonostante l'origin corretto, parità template/truncation training↔runtime.
+1. **Articolo v0.3** (`D:\openwork\posts\playwright-failure-triage-draft.md`): numeri round 3 + paragrafo gate-fitting + updated takeaways.
+2. Publish prep: repo pubblico (`gh repo edit ... --visibility public`) + figure (FIG 1-5 nelle note editoriali) + link.
+3. Ipotesi sperimentali rimaste (nessuna bloccante):
+   - `test` 13 astensioni: test_side 0.31-0.64 < 0.65 — origin corretto su 23/24; più dati test o tuning della head noul.
+   - `flake` 2 astensioni: `flake-evidence` (sub-run, conf 0.14) e `flake-random-refresh` (unico errore d'origine residuo: predice `test` a 0.04). Candidati: più dati flake, feature di retry-history nello state.
+   - INT8: harness di validazione su **input reali** dentro il kernel prima di qualunque uso (la flatline è documentata in RESULTS).
 4. **Rigenerare il token Kaggle a fine progetto** (passato in chat).
 
-## Numeri chiave (per riferimenti rapidi)
+## Mappa dei file chiave
 
-- Run #1 routing (CI): origin 19/42 (45%), tutti escalate, conf ∼0.05.
-- Run #2 routing (CI, fp32): auto 31/77 (precision 100%), coverage 0.40, origin 66/77 (86%).
-- Val in-kernel: 0.55 → 0.60 → 0.775 (tre run di training, stessa config, n=10).
-- Zero-shot: `runs/eval-report.md`; gate ingenuo: `runs/eval-report-v0.md`; fine-tune #1: `runs/eval-report-tuned.md`.
-
-## Note operative
-
+- Repo: `github.com/lucad87/qa-triage-demo` (privato). CI: `.github/workflows/e2e-triage.yml` (job: e2e, triage, collect-corpus, trained-eval).
+- Scenari: `scenarios/*.json` (49) + `manifest.json` (sync con `node scripts/scenarios/sync-manifest.mjs`; verifica con `node scripts/scenarios/apply.mjs --check`).
+- Script triage: `scripts/triage/decide.mjs` (soglie nei default), `collect.mjs`, `distill.mjs`, `eval.mjs`, `make-finetune-dataset.mjs`.
+- Dataset: `finetune/laya-triage.{train,val,all}.jsonl` (82 / 10 / 92) + `summary.json`.
+- Kaggle tooling: `C:\Users\lucad\AppData\Local\Temp\opencode\kaggle-triage\` — `rebuild-kernel-embed.cjs` (ri-embed del dataset nel kernel), `patch-kernel-v4.cjs` (ricetta int8/export), bundle locali in `v7-out\` e eval in `ci-eval-v7*\`.
 - Token Kaggle: `%USERPROFILE%\.kaggle\kaggle.json` + env `KAGGLE_API_TOKEN` (persistita) + secret repo `KAGGLE_API_TOKEN`; su Windows `$env:PYTHONUTF8=1` per la CLI.
-- Chiave DeepSeek in env (`LPR_AMXVA_DEEPSEEK_API_KEY`).
-- Kernel: `lucad87/laya-triage-train` (Kaggle); CI: `.github/workflows/e2e-triage.yml` (job: e2e, triage, collect-corpus, trained-eval).
-- Builders/patchers: `C:\Users\lucad\AppData\Local\Temp\opencode\kaggle-triage\` (`build-kernel-v2.cjs`, `patch-kernel-v3/v4.cjs`, `int8-experiment*.py`).
-- Bundle locali: fp32 run-#1 in `...\kaggle-triage\output\onnx_fp32`; bundle v6 in `...\kaggle-triage\v6-out\{onnx_fp32,onnx_int8}`; eval artifacts: `ci-eval-v6-fp32\`.
-- ⚠️ Il concurrency group di `e2e-triage.yml` cancella i run in corso: **mai pushare/dispatchare mentre `trained-eval` gira**.
+- ⚠️ Concurrency: **mai pushare/dispatchare mentre `trained-eval` gira** (il group cancella i run in corso).
 - Il blog (`lucad87/qa-blog`) NON si tocca.
