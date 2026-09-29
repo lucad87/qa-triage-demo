@@ -168,11 +168,11 @@ jobs:
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           kaggle kernels output lucad87/laya-triage-train -p model
-          if [ -f model/onnx_int8/laya.onnx ]; then
-            MD=model/onnx_int8
-          else
-            MD=model/onnx_fp32
-          fi
+          # NOTE (2026-09-29): the dynamo-int8 bundle loads and runs but flatlines outputs
+          # (uniform ~0.25 probs on real states; the in-kernel dummy-input check missed it
+          # because fp32 itself was saturated on the random input it compared against).
+          # Use fp32 until an int8 validated on REAL inputs exists.
+          MD=model/onnx_fp32
           echo "MODEL_DIR=$MD" >> "$GITHUB_ENV"
           ls -lh "$MD"
       - name: Decide with the fine-tuned model (all corpus runs)
