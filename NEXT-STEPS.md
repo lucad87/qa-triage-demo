@@ -24,8 +24,8 @@ Il progetto (pipeline + modello + eval) è **finito e funzionante**: coverage 0.
 
 ## Prossimo lavoro
 
-1. **Articolo v0.3** (`D:\openwork\posts\playwright-failure-triage-draft.md`): numeri round 3 + paragrafo gate-fitting + updated takeaways.
-2. Publish prep: repo pubblico (`gh repo edit ... --visibility public`) + figure (FIG 1-5 nelle note editoriali) + link.
+1. **Articolo finale creato**: `D:\openwork\posts\playwright-failure-triage.md` (figure PNG+SVG in `posts\assets\`; il draft con le note editoriali resta in `playwright-failure-triage-draft.md`).
+2. Publish prep: **repo pubblico** ✓ (`github.com/lucad87/qa-triage-demo`) + link già inserito nell'articolo; resta la **collocazione sul blog** (`qa-blog` — solo su richiesta esplicita).
 3. Ipotesi sperimentali rimaste (nessuna bloccante):
    - `test` 13 astensioni: test_side 0.31-0.64 < 0.65 — origin corretto su 23/24; più dati test o tuning della head noul.
    - `flake` 2 astensioni: `flake-evidence` (sub-run, conf 0.14) e `flake-random-refresh` (unico errore d'origine residuo: predice `test` a 0.04). Candidati: più dati flake, feature di retry-history nello state.
