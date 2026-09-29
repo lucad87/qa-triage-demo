@@ -25,7 +25,7 @@ Il progetto (pipeline + modello + eval) è **finito e funzionante**: coverage 0.
 ## Prossimo lavoro
 
 1. **Articolo finale creato**: `D:\openwork\posts\playwright-failure-triage.md` (figure PNG+SVG in `posts\assets\`; il draft con le note editoriali resta in `playwright-failure-triage-draft.md`).
-2. Publish prep: repo pubblico ✓ + link nell'articolo ✓; **articolo caricato sul blog come DRAFT** ✓ (id `cmumvxxvi00042hmy6fct1q8u`, slug `test-bug-or-product-bug-triaging-playwright-failures`, 6 figure uploadate via API; la **pubblicazione è manuale** dall'admin UI di blog.lucad.cloud, quando vuoi).
+2. Publish prep: repo pubblico ✓ + link nell'articolo ✓; **articolo caricato sul blog come DRAFT** ✓ (id `cmumvxxvi00042hmy6fct1q8u`, slug `test-bug-or-product-bug-triaging-playwright-failures`, 6 figure uploadate via API; aggiornato poi con la sezione "quando conviene / quanto costa mantenerlo" (21.7k char); la **pubblicazione è manuale** dall'admin UI di blog.lucad.cloud, quando vuoi).
 3. Ipotesi sperimentali rimaste (nessuna bloccante):
    - `test` 13 astensioni: test_side 0.31-0.64 < 0.65 — origin corretto su 23/24; più dati test o tuning della head noul.
    - `flake` 2 astensioni: `flake-evidence` (sub-run, conf 0.14) e `flake-random-refresh` (unico errore d'origine residuo: predice `test` a 0.04). Candidati: più dati flake, feature di retry-history nello state.
