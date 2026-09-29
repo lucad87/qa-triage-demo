@@ -34,7 +34,7 @@ Il progetto (pipeline + modello + eval) è **finito e funzionante**: coverage 0.
 
 ## Mappa dei file chiave
 
-- Repo: `github.com/lucad87/qa-triage-demo` (privato). CI: `.github/workflows/e2e-triage.yml` (job: e2e, triage, collect-corpus, trained-eval).
+- Repo: `github.com/lucad87/qa-triage-demo` (privato). CI: `.github/workflows/e2e-triage.yml` (job: e2e, triage, collect-corpus, trained-eval) + `.github/workflows/demo-pipe.yml` (demo manuale: decide → act → verify sugli states storici; ~5 min, artifact `demo-pipe`; run di riferimento `36593965876`).
 - Scenari: `scenarios/*.json` (49) + `manifest.json` (sync con `node scripts/scenarios/sync-manifest.mjs`; verifica con `node scripts/scenarios/apply.mjs --check`).
 - Script triage: `scripts/triage/decide.mjs` (soglie nei default), `collect.mjs`, `distill.mjs`, `eval.mjs`, `make-finetune-dataset.mjs`.
 - Dataset: `finetune/laya-triage.{train,val,all}.jsonl` (82 / 10 / 92) + `summary.json`.
